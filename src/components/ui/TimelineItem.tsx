@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Experience } from "@/types";
@@ -44,9 +44,11 @@ export default function TimelineItem({ experience, index }: TimelineItemProps) {
             {experience.logo && (
               <div className="w-10 h-10 rounded-lg border border-border bg-surface-2 p-1 flex items-center justify-center flex-shrink-0 overflow-hidden select-none">
                 {!imageError ? (
-                  <img
+                  <Image
                     src={experience.logo}
                     alt={`${experience.company} logo`}
+                    width={40}
+                    height={40}
                     className="w-full h-full object-contain rounded-md"
                     onError={() => setImageError(true)}
                   />

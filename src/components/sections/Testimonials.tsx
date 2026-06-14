@@ -79,9 +79,9 @@ export default function Testimonials() {
                   </span>
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-text-primary group-hover:text-accent transition-colors duration-300">
+                  <h3 className="text-sm font-semibold text-text-primary group-hover:text-accent transition-colors duration-300">
                     {item.author}
-                  </h4>
+                  </h3>
                   <p className="text-xs text-text-secondary mt-0.5">{item.role}</p>
                 </div>
               </div>

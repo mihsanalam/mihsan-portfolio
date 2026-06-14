@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
@@ -30,24 +30,32 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
           isMobileLayout ? (
             <>
               {/* Blurred background preview */}
-              <img
+              <Image
                 src={project.images[0]}
                 alt=""
                 aria-hidden="true"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
                 className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-30 pointer-events-none"
               />
               {/* Centered mobile device screenshot */}
-              <img
-                src={project.images[0]}
-                alt={`${project.title} preview`}
-                className="relative z-10 h-[92%] w-auto object-contain rounded-lg shadow-lg border border-border/20 transition-transform duration-500 group-hover:scale-[1.03] group-hover:-translate-y-1"
-              />
+              <div className="relative z-10 h-[92%] aspect-[9/19] rounded-lg shadow-lg border border-border/20 overflow-hidden transition-transform duration-500 group-hover:scale-[1.03] group-hover:-translate-y-1">
+                <Image
+                  src={project.images[0]}
+                  alt={`${project.title} preview`}
+                  fill
+                  sizes="(max-width: 768px) 150px, 120px"
+                  className="object-cover"
+                />
+              </div>
             </>
           ) : (
             /* Standard landscape image for web projects */
-            <img
+            <Image
               src={project.images[0]}
               alt={`${project.title} preview`}
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           )

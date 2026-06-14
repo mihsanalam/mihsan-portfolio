@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -93,9 +93,11 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                           <div className="relative flex-shrink-0 cursor-zoom-in group rounded-xl overflow-hidden border border-border hover:border-accent/40 transition-all duration-300 bg-surface-2">
                             {/* Tall aspect ratio for mobile apps, landscape for web */}
                             <div className={`relative ${isMobileLayout ? "w-24 h-48" : "w-52 h-32"}`}>
-                              <img
+                              <Image
                                 src={img}
                                 alt={`${project.title} screenshot ${index + 1}`}
+                                fill
+                                sizes={isMobileLayout ? "96px" : "208px"}
                                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                               />
                               <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">

@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { ArrowUp } from "lucide-react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
@@ -34,9 +34,11 @@ export default function Footer() {
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-lg border border-accent/20 bg-surface-2 p-0.5 flex items-center justify-center overflow-hidden">
-                <img
+                <Image
                   src="/images/mihsan_logo.png"
                   alt="Mihsan Alam"
+                  width={32}
+                  height={32}
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -51,7 +53,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-text-primary">Quick Links</h4>
+            <div className="text-sm font-semibold text-text-primary">Quick Links</div>
             <div className="flex flex-col gap-1.5">
               {footerLinks.map((link) => (
                 <button
@@ -67,7 +69,7 @@ export default function Footer() {
 
           {/* Socials */}
           <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-text-primary">Connect</h4>
+            <div className="text-sm font-semibold text-text-primary">Connect</div>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -87,9 +89,17 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-10 pt-6 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-text-secondary">
-            &copy; {new Date().getFullYear()} Mihsan Alam. Built with Next.js & Tailwind CSS.
-          </p>
+          <div className="space-y-1">
+            <p className="text-xs text-text-secondary">
+              &copy; {new Date().getFullYear()} Mihsan Alam.
+            </p>
+            <p className="text-[11px] text-text-secondary">
+              Powered by <span className="font-semibold text-text-primary">Obxidix</span>
+            </p>
+            <p className="text-[10px] text-text-secondary/70 font-mono">
+              Moving You Toward Your Potential
+            </p>
+          </div>
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent transition-colors group"

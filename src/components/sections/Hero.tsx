@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
@@ -73,6 +73,7 @@ export default function Hero() {
                      className="absolute -bottom-2 left-0 w-full"
                      viewBox="0 0 200 8"
                      fill="none"
+                     aria-hidden="true"
                    >
                      <path
                        d="M1 5.5C40 2 80 2 100 4C120 6 160 6 199 3"
@@ -175,9 +176,12 @@ export default function Hero() {
 
               {/* Profile photo */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border overflow-hidden shadow-xl">
-                <img
+                <Image
                   src="/images/profile.jpg"
                   alt="Mihsan Alam"
+                  fill
+                  sizes="(max-width: 640px) 256px, 320px"
+                  priority
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
                 />
               </div>

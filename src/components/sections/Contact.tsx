@@ -73,7 +73,7 @@ export default function Contact() {
             </p>
 
             <div className="space-y-4">
-              <a href="mailto:mdmihsanalam@gmail.com" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
+              <a href="mailto:mdmihsanalam@gmail.com" aria-label="Send email to mdmihsanalam@gmail.com" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
                 <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><Mail size={18} /></div>
                 <div>
                   <p className="text-xs text-text-secondary">Email</p>
@@ -81,7 +81,7 @@ export default function Contact() {
                 </div>
               </a>
 
-              <a href="https://linkedin.com/in/mihsanalam" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
+              <a href="https://linkedin.com/in/mihsanalam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Mihsan Alam" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
                 <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><FaLinkedinIn size={18} /></div>
                 <div>
                   <p className="text-xs text-text-secondary">LinkedIn</p>
@@ -111,19 +111,19 @@ export default function Contact() {
           <motion.form initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-xs font-medium text-text-secondary mb-1.5">Name</label>
-              <input id="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/40" placeholder="Your name" />
+              <input id="name" type="text" required value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/60" placeholder="Your name" />
             </div>
             <div>
               <label htmlFor="email" className="block text-xs font-medium text-text-secondary mb-1.5">Email</label>
-              <input id="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/40" placeholder="your@email.com" />
+              <input id="email" type="email" required value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/60" placeholder="your@email.com" />
             </div>
             <div>
               <label htmlFor="subject" className="block text-xs font-medium text-text-secondary mb-1.5">Subject</label>
-              <input id="subject" type="text" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/40" placeholder="Project inquiry" />
+              <input id="subject" type="text" required value={formData.subject} onChange={(e) => setFormData({ ...formData, subject: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all placeholder:text-text-secondary/60" placeholder="Project inquiry" />
             </div>
             <div>
               <label htmlFor="message" className="block text-xs font-medium text-text-secondary mb-1.5">Message</label>
-              <textarea id="message" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all resize-none placeholder:text-text-secondary/40" placeholder="Tell me about your project..." />
+              <textarea id="message" rows={5} required value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3 rounded-xl bg-surface border border-border text-text-primary text-sm focus:outline-none focus:border-accent/60 focus:shadow-[0_0_15px_rgba(123,111,232,0.1)] transition-all resize-none placeholder:text-text-secondary/60" placeholder="Tell me about your project..." />
             </div>
             <button
               type="submit"
