@@ -48,12 +48,13 @@ export default function Testimonials() {
                       <Star
                         key={i}
                         size={13}
+                        aria-hidden="true"
                         className="fill-amber-400 stroke-amber-400"
                       />
                     ))}
                   </div>
                   <div className="text-accent/20 group-hover:text-accent/30 transition-colors duration-300">
-                    <Quote size={28} className="transform rotate-180" />
+                    <Quote size={28} aria-hidden="true" className="transform rotate-180" />
                   </div>
                 </div>
 

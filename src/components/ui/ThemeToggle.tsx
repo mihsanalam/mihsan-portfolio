@@ -32,7 +32,7 @@ export default function ThemeToggle() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="absolute"
       >
-        <Moon size={18} />
+        <Moon size={18} aria-hidden="true" />
       </motion.div>
       <motion.div
         initial={false}
@@ -40,7 +40,7 @@ export default function ThemeToggle() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="absolute"
       >
-        <Sun size={18} />
+        <Sun size={18} aria-hidden="true" />
       </motion.div>
     </motion.button>
   );

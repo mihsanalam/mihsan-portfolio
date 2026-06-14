@@ -56,7 +56,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   {project.stack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 text-[11px] font-mono font-medium rounded-md bg-accent/10 text-accent border border-accent/20"
+                      className="px-2 py-0.5 text-[11px] font-mono font-medium rounded-md bg-accent/10 text-[#4f43c3] dark:text-accent border border-accent/20"
                     >
                       {tech}
                     </span>
@@ -68,7 +68,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 aria-label="Close modal"
                 className="p-2 rounded-lg bg-surface-2 border border-border text-text-secondary hover:text-text-primary hover:border-accent/40 transition-all flex-shrink-0"
               >
-                <X size={16} />
+                <X size={16} aria-hidden="true" />
               </button>
             </div>
 
@@ -120,7 +120,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   {project.features.map((feature, i) => (
                     <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                      <ChevronRight size={14} className="mt-0.5 text-accent flex-shrink-0" />
+                      <ChevronRight size={14} aria-hidden="true" className="mt-0.5 text-accent flex-shrink-0" />
                       <span>{feature}</span>
                     </li>
                   ))}
@@ -136,7 +136,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface-2 border border-border text-sm text-text-secondary hover:text-accent hover:border-accent/40 transition-all font-medium"
                   >
-                    <FaGithub size={16} />
+                    <FaGithub size={16} aria-hidden="true" />
                     View Source
                   </a>
                 )}
@@ -147,7 +147,7 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-accent text-white text-sm font-medium hover:bg-accent/90 transition-all shadow-lg shadow-accent/20"
                   >
-                    <ExternalLink size={16} />
+                    <ExternalLink size={16} aria-hidden="true" />
                     Live Demo
                   </a>
                 )}

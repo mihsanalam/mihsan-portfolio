@@ -38,7 +38,7 @@ export default function TimelineItem({ experience, index }: TimelineItemProps) {
         <div className="relative p-5 rounded-xl bg-surface border border-border hover:border-accent/30 transition-all duration-300 hover:shadow-[0_4px_20px_rgba(123,111,232,0.08)]">
           {/* Top Row: Date badge & Company Logo */}
           <div className="flex justify-between items-start gap-4 mb-3">
-            <span className="inline-block px-2.5 py-1 text-[11px] font-mono font-medium rounded-md bg-accent/10 text-accent border border-accent/20">
+            <span className="inline-block px-2.5 py-1 text-[11px] font-mono font-medium rounded-md bg-accent/10 text-[#4f43c3] dark:text-accent border border-accent/20">
               {experience.dateRange}
             </span>
             {experience.logo && (

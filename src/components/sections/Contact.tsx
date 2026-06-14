@@ -74,7 +74,7 @@ export default function Contact() {
 
             <div className="space-y-4">
               <a href="mailto:mdmihsanalam@gmail.com" aria-label="Send email to mdmihsanalam@gmail.com" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
-                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><Mail size={18} /></div>
+                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><Mail size={18} aria-hidden="true" /></div>
                 <div>
                   <p className="text-xs text-text-secondary">Email</p>
                   <p className="text-sm text-text-primary group-hover:text-accent transition-colors">mdmihsanalam@gmail.com</p>
@@ -82,7 +82,7 @@ export default function Contact() {
               </a>
 
               <a href="https://linkedin.com/in/mihsanalam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile of Mihsan Alam" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
-                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><FaLinkedinIn size={18} /></div>
+                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><FaLinkedinIn size={18} aria-hidden="true" /></div>
                 <div>
                   <p className="text-xs text-text-secondary">LinkedIn</p>
                   <p className="text-sm text-text-primary group-hover:text-accent transition-colors">linkedin.com/in/mihsanalam</p>
@@ -90,7 +90,7 @@ export default function Contact() {
               </a>
 
               <div className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border">
-                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><MapPin size={18} /></div>
+                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><MapPin size={18} aria-hidden="true" /></div>
                 <div>
                   <p className="text-xs text-text-secondary">Location</p>
                   <p className="text-sm text-text-primary">Dhaka, Bangladesh</p>
@@ -103,7 +103,7 @@ export default function Contact() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-xs font-medium text-emerald-400">Available for work</span>
+              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">Available for work</span>
             </div>
           </motion.div>
 
@@ -137,7 +137,7 @@ export default function Contact() {
                 </>
               ) : (
                 <>
-                  <Send size={16} /> Send Message
+                  <Send size={16} aria-hidden="true" /> Send Message
                 </>
               )}
             </button>
@@ -146,7 +146,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-sm mt-3"
+                className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm mt-3"
               >
                 Thank you! Your message has been sent successfully. I will get back to you soon.
               </motion.div>
@@ -155,7 +155,7 @@ export default function Contact() {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm mt-3"
+                className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-sm mt-3"
               >
                 Failed to send message. Please try again or email me directly at mdmihsanalam@gmail.com.
               </motion.div>

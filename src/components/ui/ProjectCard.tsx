@@ -122,7 +122,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
                 onClick={(e) => e.stopPropagation()}
                 className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent transition-colors"
               >
-                <FaGithub size={14} />
+                <FaGithub size={14} aria-hidden="true" />
                 <span>Source Code</span>
               </a>
             )}
@@ -134,7 +134,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
                 onClick={(e) => e.stopPropagation()}
                 className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent transition-colors"
               >
-                <ExternalLink size={14} />
+                <ExternalLink size={14} aria-hidden="true" />
                 <span>Live Site</span>
               </a>
             )}

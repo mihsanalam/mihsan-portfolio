@@ -80,7 +80,7 @@ export default function Footer() {
                   className="p-2.5 rounded-lg bg-surface-2 border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-all"
                   aria-label={social.label}
                 >
-                  <social.icon size={16} />
+                  <social.icon size={16} aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -105,7 +105,7 @@ export default function Footer() {
             className="flex items-center gap-1.5 text-xs text-text-secondary hover:text-accent transition-colors group"
           >
             <span>Back to top</span>
-            <ArrowUp size={14} className="group-hover:-translate-y-0.5 transition-transform" />
+            <ArrowUp size={14} aria-hidden="true" className="group-hover:-translate-y-0.5 transition-transform" />
           </button>
         </div>
       </div>

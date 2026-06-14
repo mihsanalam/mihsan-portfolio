@@ -59,7 +59,7 @@ export default function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
               </span>
-              <span className="text-xs font-medium text-emerald-400">
+              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
                 Available for work
               </span>
             </motion.div>
@@ -133,7 +133,7 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-xl hover:bg-accent/90 transition-all duration-300 shadow-[0_0_20px_rgba(123,111,232,0.25)] hover:shadow-[0_0_30px_rgba(123,111,232,0.4)]"
               >
                 View My Work
-                <ArrowDown size={16} />
+                <ArrowDown size={16} aria-hidden="true" />
               </a>
               <a
                 href="/resume.pdf"
@@ -141,7 +141,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-text-primary bg-surface border border-border rounded-xl hover:border-accent/40 hover:bg-surface-2 transition-all duration-300"
               >
-                <Download size={16} />
+                <Download size={16} aria-hidden="true" />
                 Download Resume
               </a>
             </div>
@@ -157,7 +157,7 @@ export default function Hero() {
                   className="p-2.5 rounded-lg bg-surface border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-all duration-300 hover:shadow-[0_0_15px_rgba(123,111,232,0.1)]"
                   aria-label={social.label}
                 >
-                  <social.icon size={18} />
+                  <social.icon size={18} aria-hidden="true" />
                 </a>
               ))}
             </div>
