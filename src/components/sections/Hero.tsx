@@ -136,7 +136,8 @@ export default function Hero() {
                 <ArrowDown size={16} aria-hidden="true" />
               </a>
               <a
-                href="/resume.pdf"
+                href="/Mihsan_Resume.pdf"
+                download="Mihsan_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-text-primary bg-surface border border-border rounded-xl hover:border-accent/40 hover:bg-surface-2 transition-all duration-300"
