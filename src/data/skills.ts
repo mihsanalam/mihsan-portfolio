@@ -4,14 +4,12 @@ export const skillCategories: SkillCategory[] = [
   {
     name: "Frontend",
     skills: [
-      { name: "React", icon: "react", category: "Frontend" },
       { name: "Next.js", icon: "nextjs", category: "Frontend" },
+      { name: "React", icon: "react", category: "Frontend" },
       { name: "TypeScript", icon: "typescript", category: "Frontend" },
-      { name: "Redux", icon: "redux", category: "Frontend" },
-      { name: "Tailwind CSS", icon: "tailwind", category: "Frontend" },
+      { name: "JavaScript", icon: "javascript", category: "Frontend" },
       { name: "HTML5", icon: "html", category: "Frontend" },
       { name: "CSS3", icon: "css", category: "Frontend" },
-      { name: "JavaScript", icon: "javascript", category: "Frontend" },
     ],
   },
   {
@@ -19,6 +17,8 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "Node.js", icon: "nodejs", category: "Backend" },
       { name: "Express.js", icon: "express", category: "Backend" },
+      { name: "Gemini AI", icon: "gemini", category: "Backend" },
+      { name: "Google OAuth", icon: "google", category: "Backend" },
     ],
   },
   {
@@ -26,6 +26,8 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       { name: "React Native", icon: "react", category: "Mobile" },
       { name: "Expo", icon: "expo", category: "Mobile" },
+      { name: "Expo Router", icon: "expo", category: "Mobile" },
+      { name: "EAS Build", icon: "expo", category: "Mobile" },
     ],
   },
   {
@@ -36,6 +38,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "MySQL", icon: "mysql", category: "Database" },
       { name: "Firebase", icon: "firebase", category: "Database" },
       { name: "Supabase", icon: "supabase", category: "Database" },
+      { name: "InsForge", icon: "inforge", category: "Database" },
+      { name: "WatermelonDB", icon: "watermelon", category: "Database" },
     ],
   },
   {
@@ -46,6 +50,12 @@ export const skillCategories: SkillCategory[] = [
       { name: "Axios", icon: "axios", category: "Libraries" },
       { name: "Socket.io", icon: "socketio", category: "Libraries" },
       { name: "Clerk", icon: "clerk", category: "Libraries" },
+      { name: "Zustand", icon: "zustand", category: "Libraries" },
+      { name: "Cloudinary", icon: "cloudinary", category: "Libraries" },
+      { name: "React Context API", icon: "react", category: "Libraries" },
+      { name: "Victory Charts", icon: "victory", category: "Libraries" },
+      { name: "Sanity CMS", icon: "sanity", category: "Libraries" },
+      { name: "Web Speech API", icon: "speech", category: "Libraries" },
     ],
   },
   {
@@ -57,6 +67,7 @@ export const skillCategories: SkillCategory[] = [
       { name: "Radix UI", icon: "radix", category: "UI Frameworks" },
       { name: "Framer Motion", icon: "framer", category: "UI Frameworks" },
       { name: "Bootstrap", icon: "bootstrap", category: "UI Frameworks" },
+      { name: "Gluestack UI", icon: "gluestack", category: "UI Frameworks" },
     ],
   },
   {
@@ -68,6 +79,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Vercel", icon: "vercel", category: "Tools" },
       { name: "VS Code", icon: "vscode", category: "Tools" },
       { name: "Figma", icon: "figma", category: "Tools" },
+      { name: "Jest", icon: "jest", category: "Tools" },
+      { name: "GitHub Actions", icon: "githubactions", category: "Tools" },
     ],
   },
 ];

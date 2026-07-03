@@ -28,9 +28,32 @@ import {
   SiVercel,
   SiBootstrap,
   SiClerk,
+  SiRadixui,
+  SiGooglegemini,
+  SiGoogle,
+  SiShadcnui,
+  SiSqlite,
+  SiJest,
+  SiGithubactions,
+  SiCloudinary,
+  SiSanity,
 } from "react-icons/si";
-import { Code } from "lucide-react";
+import { VscVscode } from "react-icons/vsc";
+import { Code, Mic } from "lucide-react";
 import { Skill } from "@/types";
+
+const InsForgeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <path
+      d="M26.1184 101.6C23.2939 98.7833 23.2939 94.2166 26.1184 91.4L97.7167 20L200 20L77.26 142.4C74.4355 145.217 69.8562 145.217 67.0317 142.4L26.1184 101.6Z"
+      fill="currentColor"
+    />
+    <path
+      d="M155.251 77.375L200 122V224L104.109 128.375L155.251 77.375Z"
+      fill="currentColor"
+    />
+  </svg>
+);
 
 // eslint-disable-next-line
 const iconMap: Record<string, React.ComponentType<any>> = {
@@ -50,7 +73,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   supabase: SiSupabase,
   git: SiGit,
   github: SiGithub,
-  vscode: Code,
+  vscode: VscVscode,
   figma: SiFigma,
   expo: SiExpo,
   redux: SiRedux,
@@ -62,6 +85,17 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   vercel: SiVercel,
   bootstrap: SiBootstrap,
   clerk: SiClerk,
+  radix: SiRadixui,
+  gemini: SiGooglegemini,
+  google: SiGoogle,
+  shadcn: SiShadcnui,
+  sqlite: SiSqlite,
+  jest: SiJest,
+  githubactions: SiGithubactions,
+  cloudinary: SiCloudinary,
+  sanity: SiSanity,
+  inforge: InsForgeIcon,
+  speech: Mic,
 };
 
 interface SkillBadgeProps {

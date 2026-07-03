@@ -2,6 +2,38 @@ import { Project } from "@/types";
 
 export const projects: Project[] = [
   {
+    id: "optimus",
+    title: "Optimus AI Workspace",
+    description:
+      "A premium personal AI assistant and freelance CRM hub that automates background workflows and unifies Gmail, Google Calendar, and WhatsApp.",
+    longDescription:
+      "Optimus is a hybrid, collaborative AI-powered workflow assistant and CRM designed to unify digital tools. Built with Next.js 14 and styled with a custom dark/teal theme, it integrates live Gmail and Google Calendar OAuth APIs, a real-time WhatsApp gateway using Baileys WebSockets, and a custom voice assistant utilizing the Web Speech API and Gemini. The system includes an automated background daily briefing engine, invoice generators, financial ledgers, lead builders, and content creators, with data persisted via InsForge BaaS (PostgreSQL) and protected by Row Level Security.",
+    images: [
+      "/projects/optimus/dashboard.png",
+      "/projects/optimus/landing.png",
+      "/projects/optimus/agent.png",
+      "/projects/optimus/intregations.png",
+      "/projects/optimus/news.png",
+      "/projects/optimus/briefing.png"
+    ],
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Gemini AI", "InsForge", "WebSockets", "Web Speech API"],
+    github: "https://github.com/mihsanalam/Optimus",
+    liveUrl: "https://optimus-theta.vercel.app/",
+    features: [
+      "Advanced AI Agent powered by Gemini 2.5/2.0 models with dynamic tool/function calling",
+      "Real-time Gmail OAuth integration with automatic email summary and draft creation",
+      "Google Calendar sync featuring CRUD operations for event management and scheduling",
+      "Persistent WhatsApp connection via Baileys WebSocket pairing code stored securely in PostgreSQL",
+      "Custom voice control overlay using Web Speech API and Gemini-translated JSON UI intents",
+      "Complete Freelance CRM suite including client registers, billable timers, and PDF/CSV invoices",
+      "Daily briefing system automatically generating priorities, schedules, and alerts from live inbox data",
+      "AI News Aggregator and Creator Studio for one-click LinkedIn and Twitter content generation",
+    ],
+    category: ["Production", "Web", "React"],
+    featured: true,
+    layout: "desktop",
+  },
+  {
     id: "jcreation",
     title: "J-Creation E-Commerce",
     description:
