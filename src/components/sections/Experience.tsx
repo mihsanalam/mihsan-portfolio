@@ -15,7 +15,7 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-sm font-mono text-accent">04. Career</span>
+          <span className="text-sm font-mono text-accent">06. Career</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">Experience</h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
         </motion.div>

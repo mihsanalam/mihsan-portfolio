@@ -7,7 +7,7 @@ const stats = [
   { value: 9, suffix: "+", label: "Projects" },
   { value: 2, suffix: "", label: "Real Clients" },
   { value: 2, suffix: "", label: "Live Projects" },
-  { value: 1.5, suffix: "+", label: "Years Experience" },
+  { value: 2, suffix: "+", label: "Years Experience" },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {

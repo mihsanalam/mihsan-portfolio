@@ -65,10 +65,11 @@ export default function Hero() {
             </motion.div>
 
             <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary">
-                Hi, I&apos;m{" "}
-                <span className="text-accent relative">
-                  Mihsan Alam
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
+                I Build{" "}
+                <span className="text-accent">Websites & Custom</span>{" "}
+                <span className="text-accent relative inline-block whitespace-nowrap">
+                  Web Applications
                   <svg
                      className="absolute -bottom-2 left-0 w-full"
                      viewBox="0 0 200 8"
@@ -83,11 +84,9 @@ export default function Hero() {
                        className="text-accent/40"
                      />
                    </svg>
-                 </span>
+                 </span>{" "}
+                For Businesses
               </h1>
-              <h2 className="text-xl sm:text-2xl font-semibold text-text-secondary">
-                Full Stack Engineer
-              </h2>
             </div>
 
             {/* Typing animation */}
@@ -96,13 +95,13 @@ export default function Hero() {
               {mounted ? (
                 <TypeAnimation
                   sequence={[
-                    "Building Real-World Web Apps",
+                    "E-commerce & Business Websites",
                     2000,
-                    "React Native Mobile Developer",
+                    "Custom Admin Dashboards",
                     2000,
-                    "MERN Stack Engineer",
+                    "Inventory Management Systems",
                     2000,
-                    "Turning Ideas Into Products",
+                    "SaaS & Custom Web Applications",
                     2000,
                   ]}
                   wrapper="span"
@@ -112,14 +111,13 @@ export default function Hero() {
                 />
               ) : (
                 <span className="text-sm sm:text-base text-text-secondary font-mono">
-                  Building Real-World Web Apps
+                  E-commerce & Business Websites
                 </span>
               )}
             </div>
 
-            <p className="text-text-secondary leading-relaxed max-w-lg">
-              I build production-grade web and mobile applications for real businesses.
-              Passionate about clean architecture, great user experiences, and shipping products that make an impact.
+            <p className="text-text-secondary leading-relaxed max-w-lg text-base">
+              Helping businesses establish a strong online presence through modern websites, e-commerce stores, and custom software solutions.
             </p>
 
             {/* CTA Buttons */}
@@ -132,20 +130,43 @@ export default function Hero() {
                 }}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-xl hover:bg-accent/90 transition-all duration-300 shadow-[0_0_20px_rgba(123,111,232,0.25)] hover:shadow-[0_0_30px_rgba(123,111,232,0.4)]"
               >
-                View My Work
+                View Projects
                 <ArrowDown size={16} aria-hidden="true" />
               </a>
               <a
-                href="/Mihsan_Resume.pdf"
-                download="Mihsan_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-text-primary bg-surface border border-border rounded-xl hover:border-accent/40 hover:bg-surface-2 transition-all duration-300"
               >
-                <Download size={16} aria-hidden="true" />
-                Download Resume
+                Hire Me
               </a>
             </div>
+
+            {/* Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="flex flex-wrap items-center gap-8 pt-6 border-t border-border/40 max-w-lg"
+            >
+              <div>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">10+</h3>
+                <p className="text-xs font-medium text-text-secondary mt-1">Projects Built</p>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-border/60" />
+              <div>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">15+</h3>
+                <p className="text-xs font-medium text-text-secondary mt-1">Technologies</p>
+              </div>
+              <div className="hidden sm:block w-px h-8 bg-border/60" />
+              <div>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">2+ Years</h3>
+                <p className="text-xs font-medium text-text-secondary mt-1">Building Web Apps</p>
+              </div>
+            </motion.div>
 
             {/* Social Icons */}
             <div className="flex gap-3 pt-2">

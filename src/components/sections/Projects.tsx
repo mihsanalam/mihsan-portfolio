@@ -47,7 +47,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-sm font-mono text-accent">03. Work</span>
+          <span className="text-sm font-mono text-accent">04. Work</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
             Featured Projects
           </h2>

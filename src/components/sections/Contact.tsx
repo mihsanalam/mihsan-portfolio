@@ -59,7 +59,7 @@ export default function Contact() {
     <section id="contact" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <span className="text-sm font-mono text-accent">05. Contact</span>
+          <span className="text-sm font-mono text-accent">08. Contact</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">Let&apos;s Work Together</h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
         </motion.div>
