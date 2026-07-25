@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     title: "Mihsan Alam — Full Stack Developer",
     description:
       "Building real-world web and mobile applications. Check out my projects and get in touch.",
-    url: "https://mihsanalam.vercel.app",
+    url: "https://www.mihsanalam.com",
     siteName: "Mihsan Alam Portfolio",
     type: "website",
     locale: "en_US",
