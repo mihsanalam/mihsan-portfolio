@@ -71,7 +71,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
-          {/* Left — Stats + Photo placeholder */}
+          {/* Left — Stats + Photo */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -82,7 +82,7 @@ export default function About() {
             {/* Profile photo */}
             <div className="relative w-full aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
               <Image
-                src="/images/profile.jpg"
+                src="/images/profile_2.jpeg"
                 alt="Mihsan Alam"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"

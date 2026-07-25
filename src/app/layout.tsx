@@ -14,11 +14,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mihsanalam.com"),
   title: "Mihsan Alam — Full Stack Developer",
   description:
     "Portfolio of Mihsan Alam — a Full Stack Engineer building production-grade web and mobile applications with Next.js, React Native, and the MERN stack.",
   icons: {
-    icon: "/images/mihsan_logo.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/images/mihsan_logo.png", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
     apple: "/images/mihsan_logo.png",
   },
   keywords: [
