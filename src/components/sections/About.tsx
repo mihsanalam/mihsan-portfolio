@@ -82,7 +82,7 @@ export default function About() {
             {/* Profile photo */}
             <div className="relative w-full aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
               <Image
-                src="/images/profile_2.jpeg"
+                src="/images/profile.jpg"
                 alt="Mihsan Alam"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"

@@ -4,11 +4,13 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
 import { ArrowDown, Download } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/mihsanalam", label: "GitHub" },
   { icon: FaLinkedinIn, href: "https://linkedin.com/in/mihsanalam", label: "LinkedIn" },
+  { icon: FaInstagram, href: "https://www.instagram.com/mihsanalam/", label: "Instagram" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/mdmihsanalam", label: "Facebook" },
 ];
 
 export default function Hero() {
@@ -199,7 +201,7 @@ export default function Hero() {
               {/* Profile photo */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border overflow-hidden shadow-xl">
                 <Image
-                  src="/images/profile.jpg"
+                  src="/images/profile_2.jpeg"
                   alt="Mihsan Alam"
                   fill
                   sizes="(max-width: 640px) 256px, 320px"

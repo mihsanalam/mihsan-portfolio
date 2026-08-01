@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ArrowUp } from "lucide-react";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const footerLinks = [
   { label: "About", href: "#about" },
@@ -15,6 +15,8 @@ const footerLinks = [
 const socialLinks = [
   { icon: FaGithub, href: "https://github.com/mihsanalam", label: "GitHub" },
   { icon: FaLinkedinIn, href: "https://linkedin.com/in/mihsanalam", label: "LinkedIn" },
+  { icon: FaInstagram, href: "https://www.instagram.com/mihsanalam/", label: "Instagram" },
+  { icon: FaFacebookF, href: "https://www.facebook.com/mdmihsanalam", label: "Facebook" },
 ];
 
 export default function Footer() {

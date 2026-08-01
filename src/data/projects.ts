@@ -151,6 +151,7 @@ export const projects: Project[] = [
       "Role-based permission separation (Administrators vs Staff Members)",
     ],
     category: ["Production", "Mobile", "React Native"],
+    featured: true,
     layout: "mobile",
   },
   {
@@ -180,6 +181,7 @@ export const projects: Project[] = [
       "Event-driven socket message history query and contact lookup API",
     ],
     category: ["Production", "Mobile", "MERN", "React Native"],
+    featured: true,
     layout: "mobile",
   },
   {
@@ -260,6 +262,7 @@ export const projects: Project[] = [
       "Clean, responsive dashboard layout built with React & Mock API",
     ],
     category: ["Learning", "Web", "React"],
+    featured: true,
     layout: "desktop",
   },
   {
@@ -282,5 +285,207 @@ export const projects: Project[] = [
     ],
     category: ["Learning", "Web", "React"],
     layout: "desktop",
+  },
+  {
+    id: "avano",
+    title: "Avano — Asian Fusion, Elevated (Restaurant)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Avano is a feature-rich e-commerce platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/restaurants/avano_1.png",
+      "/restaurants/avano_2.png",
+      "/restaurants/avano_3.png",
+      "/restaurants/avano_4.png"
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://avano-restaurent.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences",
+      "User-friendly product browsing and search capabilities",
+      "Secure checkout process with integrated payment gateway",
+      "Real-time inventory management and stock updates",
+      "Customizable product filters and sorting options",
+    ],
+    category: ["Restaurant", "Web", "React"],
+    featured: true,
+    layout: "desktop",
+  },
+  {
+    id: "little_italy",
+    title: "Little Italy (Restaurant)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Little Italy is a feature-rich e-commerce platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/restaurants/italy_1.png",
+      "/restaurants/italy_2.png",
+      "/restaurants/italy_3.png",
+      "/restaurants/italy_4.png"
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://little-italic.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences",
+      "User-friendly product browsing and search capabilities",
+      "Secure checkout process with integrated payment gateway",
+      "Real-time inventory management and stock updates",
+      "Customizable product filters and sorting options",
+    ],
+    category: ["Restaurant", "Web", "React"],
+    layout: "desktop",
+  },
+  {
+    id: "hawa",
+    title: "Hawa Rooftop (Restaurant)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Hawa Rooftop is a feature-rich restaurant platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/restaurants/hawa_1.png",
+      "/restaurants/hawa_2.png",
+      "/restaurants/hawa_3.png",
+      "/restaurants/hawa_4.png"
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://hawa-rooftop.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences",
+      "User-friendly product browsing and search capabilities",
+      "Secure checkout process with integrated payment gateway",
+      "Real-time inventory management and stock updates",
+      "Customizable product filters and sorting options",
+    ],
+    category: ["Restaurant", "Web", "React"],
+    layout: "desktop",
+  },
+  {
+    id: "celebrate_cafe",
+    title: "Celebrate Cafe (Restaurant)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Celebrate Cafe is a feature-rich restaurant platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/restaurants/celebrate_1.png",
+      "/restaurants/celebrate_2.png",
+      "/restaurants/celebrate_3.png",
+      "/restaurants/celebrate_4.png"
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://celebratae-cafe.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences",
+      "User-friendly product browsing and search capabilities",
+      "Secure checkout process with integrated payment gateway",
+      "Real-time inventory management and stock updates",
+      "Customizable product filters and sorting options",
+    ],
+    category: ["Restaurant", "Web", "React"],
+    layout: "desktop",
+  },
+  {
+    id: "nongor",
+    title: "Nongor Rooftop (Restaurant)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Nongor Rooftop is a feature-rich restaurant platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/restaurants/nongor_1.png",
+      "/restaurants/nongor_2.png",
+      "/restaurants/nongor_3.png",
+      "/restaurants/nongor_4.png"
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://nongor-rooftop.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences",
+      "User-friendly product browsing and search capabilities",
+      "Secure checkout process with integrated payment gateway",
+      "Real-time inventory management and stock updates",
+      "Customizable product filters and sorting options",
+    ],
+    category: ["Restaurant", "Web", "React"],
+    layout: "desktop",
+  },
+  {
+    id: "nibir_fashion",
+    title: "Nibir Fashion (E-Commerce)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Nibir Fashion is a feature-rich e-commerce platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/e_com/nibir_home.png",
+      "/e_com/nibir_product.png",
+      "/e_com/nibir_productPage.png",
+      "/e_com/nibir_cart.png",
+      "/e_com/nibir_checkout.png",
+      "/e_com/nibir.png",
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://nibirfashion.vercel.app/",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences", 
+    ],
+    category: ["E-Commerce", "Web", "Next.js"],
+    featured: true,
+    layout: "desktop",
+  },
+  {
+    id: "donna",
+    title: "Donna (E-Commerce)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Donna is a feature-rich e-commerce platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/e_com/donna.png",
+      "/e_com/donna_product.png",
+      "/e_com/donna_productPage.png",
+      "/e_com/donna_checkout.png",
+      "/e_com/donna.png",
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://ecommerce-demo-kappa-silk.vercel.app/shop/home",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences", 
+    ],
+    category: ["E-Commerce", "Web", "React"],
+    layout: "desktop"
+  },
+    {
+    id: "tribe",
+    title: "Tribe (E-Commerce)",
+    description:
+      "A modern e-commerce platform built with React and Node.js for seamless online shopping experiences.",
+    longDescription:
+      "Tribe is a feature-rich e-commerce platform developed with React and Node.js. It provides a comprehensive solution for online retail, including product listings, shopping cart functionality, user authentication, and secure payment processing.",
+    images: [
+      "/e_com/tribe.png",
+      "/e_com/tribe_product.png",
+      "/e_com/tribe_productPage.png",
+      "/e_com/tribe_checkout.png",
+      "/e_com/tribe.png",
+    ],
+    stack: ["React", "Node.js", "Tailwind", "Radix UI", "Framer Motion", "Google Maps API", "JavaScript"],
+    github: "",
+    liveUrl: "https://tribedemo-pi.vercel.app/shop/home",
+    features: [
+      "Responsive design for optimal mobile and desktop experiences", 
+    ],
+    category: ["E-Commerce", "Web", "React"],
+    layout: "desktop"
   },
 ];

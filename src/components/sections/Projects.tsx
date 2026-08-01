@@ -8,23 +8,23 @@ import { projects } from "@/data/projects";
 import { Project } from "@/types";
 
 const filterTabs = [
-  { label: "All", value: "All" },
-  { label: "Production Mains", value: "Production" },
-  { label: "When I Was Learning", value: "Learning" },
-  { label: "Web Applications", value: "Web" },
-  { label: "Mobile Applications", value: "Mobile" },
-  { label: "MERN Stack", value: "MERN" },
-  { label: "React Native", value: "React Native" },
+  { label: "⭐ Featured", value: "featured" },
+  { label: "🏗 Construction", value: "Construction" },
+  { label: "🛍 E-Commerce", value: "E-Commerce" },
+  { label: "🍽 Restaurant", value: "Restaurant" },
+  { label: "💻 Web Apps", value: "Web" },
+  { label: "📱 Mobile Apps", value: "Mobile" },
+  { label: "🧪 Experiments / Learning", value: "Learning" },
 ];
 
 export default function Projects() {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("featured");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const filtered =
-    activeFilter === "All"
-      ? projects
+    activeFilter === "featured"
+      ? projects.filter((p) => p.featured)
       : projects.filter((p) => p.category.includes(activeFilter));
 
   const openModal = (project: Project) => {
