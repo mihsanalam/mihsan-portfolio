@@ -101,11 +101,51 @@ const iconMap: Record<string, React.ComponentType<any>> = {
 interface SkillBadgeProps {
   skill: Skill;
   index: number;
+  /** Core Stack mode — renders icon + name centered inside the parent card */
+  coreMode?: boolean;
+  /** Compact mode — smaller, tighter badge for Full Toolkit grid */
+  compact?: boolean;
 }
 
-export default function SkillBadge({ skill, index }: SkillBadgeProps) {
+export default function SkillBadge({ skill, index, coreMode, compact }: SkillBadgeProps) {
   const Icon = iconMap[skill.icon];
 
+  // ── Core Stack variant: just icon + name, centered (parent handles the card) ──
+  if (coreMode) {
+    return (
+      <div className="flex flex-col items-center gap-2 w-full">
+        {Icon && (
+          <Icon className="w-7 h-7 text-accent group-hover:scale-110 transition-transform duration-300" />
+        )}
+        <span className="text-xs font-semibold text-text-primary text-center leading-tight">
+          {skill.name}
+        </span>
+      </div>
+    );
+  }
+
+  // ── Compact variant: smaller badge for Full Toolkit ──
+  if (compact) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.3, delay: index * 0.03 }}
+        whileHover={{ scale: 1.04 }}
+        className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-surface border border-border hover:border-accent/30 hover:bg-surface-2 transition-all duration-200 cursor-default"
+      >
+        {Icon && (
+          <Icon className="w-3.5 h-3.5 text-text-secondary group-hover:text-accent transition-colors duration-200 flex-shrink-0" />
+        )}
+        <span className="text-xs font-medium text-text-secondary group-hover:text-text-primary transition-colors truncate">
+          {skill.name}
+        </span>
+      </motion.div>
+    );
+  }
+
+  // ── Default variant ──
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

@@ -67,28 +67,32 @@ export default function Hero() {
             </motion.div>
 
             <div className="space-y-2">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
-                I Build{" "}
-                <span className="text-accent">Websites & Custom</span>{" "}
+              <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-text-primary leading-tight">
+                Full-Stack Developer Building{" "}
+                <span className="text-accent">Websites,</span>{" "}
+                E-commerce &{" "}
                 <span className="text-accent relative inline-block whitespace-nowrap">
-                  Web Applications
+                  Custom Web Apps
                   <svg
-                     className="absolute -bottom-2 left-0 w-full"
-                     viewBox="0 0 200 8"
-                     fill="none"
-                     aria-hidden="true"
-                   >
-                     <path
-                       d="M1 5.5C40 2 80 2 100 4C120 6 160 6 199 3"
-                       stroke="currentColor"
-                       strokeWidth="2"
-                       strokeLinecap="round"
-                       className="text-accent/40"
-                     />
-                   </svg>
-                 </span>{" "}
-                For Businesses
+                    className="absolute -bottom-2 left-0 w-full"
+                    viewBox="0 0 200 8"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 5.5C40 2 80 2 100 4C120 6 160 6 199 3"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      className="text-accent/40"
+                    />
+                  </svg>
+                </span>{" "}
+                for Businesses
               </h1>
+              <p className="text-sm text-text-secondary font-medium pt-1">
+                17-year-old self-taught developer, based in Dhaka &mdash; building real software for real businesses.
+              </p>
             </div>
 
             {/* Typing animation */}
@@ -155,17 +159,17 @@ export default function Hero() {
               className="flex flex-wrap items-center gap-8 pt-6 border-t border-border/40 max-w-lg"
             >
               <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">10+</h3>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">15+</h3>
                 <p className="text-xs font-medium text-text-secondary mt-1">Projects Built</p>
               </div>
               <div className="hidden sm:block w-px h-8 bg-border/60" />
               <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">15+</h3>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">30+</h3>
                 <p className="text-xs font-medium text-text-secondary mt-1">Technologies</p>
               </div>
               <div className="hidden sm:block w-px h-8 bg-border/60" />
               <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">2+ Years</h3>
+                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">3+ Years</h3>
                 <p className="text-xs font-medium text-text-secondary mt-1">Building Web Apps</p>
               </div>
             </motion.div>
@@ -201,12 +205,13 @@ export default function Hero() {
               {/* Profile photo */}
               <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border overflow-hidden shadow-xl">
                 <Image
-                  src="/images/profile_2.jpeg"
-                  alt="Mihsan Alam"
+                  src="/images/hero.webp"
+                  alt="Mihsan Alam - Full Stack Developer based in Dhaka"
                   fill
                   sizes="(max-width: 640px) 256px, 320px"
                   priority
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                  style={{ objectPosition: "0% 0%", marginLeft: "-10px" }}
                 />
               </div>
 

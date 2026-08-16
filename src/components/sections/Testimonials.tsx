@@ -69,14 +69,11 @@ export default function Testimonials() {
                 {/* Glowing Initial Avatar */}
                 <div className="w-11 h-11 rounded-full bg-gradient-to-br from-accent/20 to-accent-2/10 border border-accent/30 flex items-center justify-center flex-shrink-0 shadow-sm shadow-accent/5">
                   <span className="text-xs font-bold font-mono tracking-wider text-accent uppercase">
-                    {item.author === "CEO" 
-                      ? "IC"
-                      : item.author === "Sales Manager" 
-                      ? "JC"
-                      : item.author
-                          .split(" ")
-                          .map((word) => word[0])
-                          .join("")}
+                    {item.author
+                      .split(" ")
+                      .map((word) => word[0])
+                      .join("")
+                      .slice(0, 2)}
                   </span>
                 </div>
                 <div>

@@ -11,6 +11,7 @@ export interface Project {
   category: string[];
   featured?: boolean;
   layout?: "mobile" | "desktop";
+  imageAlt?: string;
 }
 
 export interface Skill {

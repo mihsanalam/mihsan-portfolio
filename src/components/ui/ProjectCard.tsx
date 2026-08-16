@@ -42,7 +42,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
               <div className="relative z-10 h-[92%] aspect-[9/19] rounded-lg shadow-lg border border-border/20 overflow-hidden transition-transform duration-500 group-hover:scale-[1.03] group-hover:-translate-y-1">
                 <Image
                   src={project.images[0]}
-                  alt={`${project.title} preview`}
+                  alt={project.imageAlt || `${project.title} preview`}
                   fill
                   sizes="(max-width: 768px) 150px, 120px"
                   className="object-cover"
@@ -53,7 +53,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
             /* Standard landscape image for web projects */
             <Image
               src={project.images[0]}
-              alt={`${project.title} preview`}
+              alt={project.imageAlt || `${project.title} preview`}
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

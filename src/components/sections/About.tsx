@@ -4,10 +4,10 @@ import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 
 const stats = [
-  { value: 9, suffix: "+", label: "Projects" },
-  { value: 2, suffix: "", label: "Real Clients" },
-  { value: 2, suffix: "", label: "Live Projects" },
-  { value: 2, suffix: "+", label: "Years Experience" },
+  { value: 15, suffix: "+", label: "Projects Built" },
+  { value: 3, suffix: "", label: "Past Clients" },
+  { value: 3, suffix: "", label: "Live Projects" },
+  { value: 3, suffix: "+", label: "Years Experience" },
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
@@ -82,8 +82,8 @@ export default function About() {
             {/* Profile photo */}
             <div className="relative w-full aspect-[4/5] max-w-xs mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
               <Image
-                src="/images/profile.jpg"
-                alt="Mihsan Alam"
+                src="/images/about.webp"
+                alt="Mihsan Alam working - Full Stack Web Developer"
                 fill
                 sizes="(max-width: 640px) 100vw, 320px"
                 className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
@@ -119,24 +119,21 @@ export default function About() {
             className="lg:col-span-3 space-y-5"
           >
             <p className="text-text-secondary leading-relaxed">
-              I&apos;m Mihsan Alam, a Full Stack Engineer from Dhaka, Bangladesh. I specialize in
-              building production-grade web and mobile applications that solve real business
-              problems. My approach focuses on clean architecture, intuitive user experiences,
-              and writing code that scales.
+              Most small businesses lose customers every day simply because they have no real online
+              presence, or their existing systems don&apos;t match how they actually work. I fix that
+              with production-grade platforms, not templates.
             </p>
 
             <p className="text-text-secondary leading-relaxed">
-              With hands-on experience across the MERN stack, React Native, and modern tools
-              like Next.js and TypeScript, I&apos;ve delivered real-world applications — from
-              e-commerce platforms to inventory management systems used by actual businesses
-              every day.
+              I&apos;m a full-stack developer based in Dhaka, Bangladesh, specializing in
+              production-grade web and mobile applications that solve real business problems. My
+              approach focuses on clean architecture, intuitive user experience, and writing code
+              that scales.
             </p>
 
             <p className="text-text-secondary leading-relaxed">
-              What sets me apart is my focus on shipping complete products, not just writing
-              code. I handle everything from database design and API development to deploying
-              polished frontends and mobile apps. Every project I take on is treated as a
-              product I personally own.
+              I&apos;m 17, self-taught, and building real products for real clients while most
+              people my age are still deciding what to learn.
             </p>
 
             {/* Currently Focused */}

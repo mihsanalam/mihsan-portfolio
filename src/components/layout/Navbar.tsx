@@ -86,7 +86,7 @@ export default function Navbar() {
               <div className="w-8 h-8 rounded-lg border border-accent/20 bg-surface-2 p-0.5 flex items-center justify-center overflow-hidden">
                 <Image
                   src="/images/mihsan_logo.png"
-                  alt="Mihsan Alam"
+                  alt="Mihsan Alam Portfolio Logo"
                   width={32}
                   height={32}
                   className="w-full h-full object-contain"

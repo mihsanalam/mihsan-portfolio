@@ -70,13 +70,13 @@ export default function WhyWorkWithMe() {
               transition={{ delay: 0.2 }}
               className="flex items-center gap-4 p-5 rounded-2xl bg-surface border border-border shadow-md max-w-sm"
             >
-              <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 text-accent font-bold text-lg">
-                100%
+              <div className="px-3 py-2 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center flex-shrink-0">
+                <span className="text-accent font-bold text-lg font-mono">100%</span>
               </div>
               <div className="space-y-0.5">
                 <h4 className="text-sm font-semibold text-text-primary">Reliable Delivery</h4>
                 <p className="text-xs text-text-secondary">
-                  Client-focused execution & clear communication.
+                  Client-focused execution &amp; clear communication.
                 </p>
               </div>
             </motion.div>

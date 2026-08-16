@@ -29,6 +29,7 @@ export const projects: Project[] = [
     ],
     category: ["Production", "Web", "MERN", "React"],
     featured: true,
+    imageAlt: "J-Creation e-commerce platform homepage screenshot",
     layout: "desktop",
   },
   {
@@ -60,6 +61,7 @@ export const projects: Project[] = [
       "Fully covered with Jest unit tests and integrated GitHub Actions CI/CD",
     ],
     category: ["Production", "Mobile", "React Native"],
+    imageAlt: "Jamil Creation mobile inventory management app screenshot",
     layout: "mobile",
   },
   {
@@ -92,6 +94,7 @@ export const projects: Project[] = [
     ],
     category: ["Production", "Web", "React"],
     featured: true,
+    imageAlt: "Optimus AI workspace dashboard UI screenshot",
     layout: "desktop",
   },
   {
@@ -121,6 +124,7 @@ export const projects: Project[] = [
       "Smooth layout interfaces built with Gluestack UI and NativeWind",
     ],
     category: ["Production", "Mobile", "React Native"],
+    imageAlt: "Novus learning platform mobile app interface screenshot",
     layout: "mobile",
   },
   {
@@ -152,6 +156,7 @@ export const projects: Project[] = [
     ],
     category: ["Production", "Mobile", "React Native"],
     featured: true,
+    imageAlt: "Kasem Garments mobile app inventory dashboard screenshot",
     layout: "mobile",
   },
   {
@@ -182,6 +187,7 @@ export const projects: Project[] = [
     ],
     category: ["Production", "Mobile", "MERN", "React Native"],
     featured: true,
+    imageAlt: "Syntonic real-time chat app interface screenshot",
     layout: "mobile",
   },
   {
@@ -203,6 +209,7 @@ export const projects: Project[] = [
       "Sleek and fully responsive user interface",
     ],
     category: ["Learning", "Web", "React"],
+    imageAlt: "AI Image Enhancer web application interface screenshot",
     layout: "desktop",
   },
   {
@@ -229,6 +236,7 @@ export const projects: Project[] = [
       "Fully responsive utilities optimized with Tailwind CSS",
     ],
     category: ["Learning", "Web", "React"],
+    imageAlt: "Jamil Creation Web Hub business landing page screenshot",
     layout: "desktop",
   },
   {
@@ -263,6 +271,7 @@ export const projects: Project[] = [
     ],
     category: ["Learning", "Web", "React"],
     featured: true,
+    imageAlt: "Ordex inventory manager web dashboard screenshot",
     layout: "desktop",
   },
   {
@@ -284,6 +293,7 @@ export const projects: Project[] = [
       "Optimized production bundle for high speed and lighthouse score levels",
     ],
     category: ["Learning", "Web", "React"],
+    imageAlt: "DigiDrive marketing agency landing page screenshot",
     layout: "desktop",
   },
   {
@@ -311,6 +321,7 @@ export const projects: Project[] = [
     ],
     category: ["Restaurant", "Web", "React"],
     featured: true,
+    imageAlt: "Avano restaurant website online ordering interface screenshot",
     layout: "desktop",
   },
   {
@@ -337,6 +348,7 @@ export const projects: Project[] = [
       "Customizable product filters and sorting options",
     ],
     category: ["Restaurant", "Web", "React"],
+    imageAlt: "Little Italy restaurant online ordering platform screenshot",
     layout: "desktop",
   },
   {
@@ -363,6 +375,7 @@ export const projects: Project[] = [
       "Customizable product filters and sorting options",
     ],
     category: ["Restaurant", "Web", "React"],
+    imageAlt: "Hawa Rooftop restaurant e-commerce website screenshot",
     layout: "desktop",
   },
   {
@@ -389,6 +402,7 @@ export const projects: Project[] = [
       "Customizable product filters and sorting options",
     ],
     category: ["Restaurant", "Web", "React"],
+    imageAlt: "Celebrate Cafe restaurant platform interface screenshot",
     layout: "desktop",
   },
   {
@@ -415,6 +429,7 @@ export const projects: Project[] = [
       "Customizable product filters and sorting options",
     ],
     category: ["Restaurant", "Web", "React"],
+    imageAlt: "Nongor Rooftop restaurant web application screenshot",
     layout: "desktop",
   },
   {
@@ -440,6 +455,7 @@ export const projects: Project[] = [
     ],
     category: ["E-Commerce", "Web", "Next.js"],
     featured: true,
+    imageAlt: "Nibir Fashion e-commerce web application storefront screenshot",
     layout: "desktop",
   },
   {
@@ -463,6 +479,7 @@ export const projects: Project[] = [
       "Responsive design for optimal mobile and desktop experiences", 
     ],
     category: ["E-Commerce", "Web", "React"],
+    imageAlt: "Donna E-Commerce platform storefront screenshot",
     layout: "desktop"
   },
     {
@@ -486,6 +503,7 @@ export const projects: Project[] = [
       "Responsive design for optimal mobile and desktop experiences", 
     ],
     category: ["E-Commerce", "Web", "React"],
+    imageAlt: "Tribe E-Commerce online store interface screenshot",
     layout: "desktop"
   },
 ];

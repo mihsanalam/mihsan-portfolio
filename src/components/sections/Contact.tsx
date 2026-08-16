@@ -67,6 +67,11 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left - Contact Info */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
+            <p className="text-sm text-text-secondary leading-relaxed italic border-l-2 border-accent/40 pl-3">
+              If you&apos;re a business owner losing customers to competitors who are already
+              online, or dealing with manual processes that should be automated &mdash; let&apos;s talk.
+            </p>
+
             <p className="text-text-secondary leading-relaxed">
               I&apos;m currently available for freelance work and full-time opportunities.
               If you have a project in mind or just want to chat, feel free to reach out!

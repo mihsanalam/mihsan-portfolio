@@ -10,13 +10,13 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Mihsan is a proactive frontend engineer who translated our complex designs into high-quality, responsive code with great attention to detail.",
-    author: "CEO",
+    author: "Innovick Team",
     role: "CEO, Innovick",
   },
   {
     quote:
       "The e-commerce platform Mihsan built is extremely fast and responsive. It has greatly improved our sales workflow and customer conversion rates.",
-    author: "Sales Manager",
+    author: "J Creation Team",
     role: "Sales Manager, J Creation",
   },
 ];

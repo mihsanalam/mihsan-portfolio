@@ -15,9 +15,9 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.mihsanalam.com"),
-  title: "Mihsan Alam — Full Stack Developer",
+  title: "Mihsan Alam | Expert Full-Stack Developer | React & Next.js",
   description:
-    "Portfolio of Mihsan Alam — a Full Stack Engineer building production-grade web and mobile applications with Next.js, React Native, and the MERN stack.",
+    "Elevate your business with custom web applications and e-commerce platforms. Mihsan Alam is a highly skilled Full-Stack Developer based in Bangladesh, specializing in React, Next.js, and Node.js.",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mihsan Alam" }],
   openGraph: {
-    title: "Mihsan Alam — Full Stack Developer",
+    title: "Mihsan Alam | Expert Full-Stack Developer | React & Next.js",
     description:
-      "Building real-world web and mobile applications. Check out my projects and get in touch.",
+      "Elevate your business with custom web applications and e-commerce platforms. Mihsan Alam is a highly skilled Full-Stack Developer based in Bangladesh, specializing in React, Next.js, and Node.js.",
     url: "https://www.mihsanalam.com",
     siteName: "Mihsan Alam Portfolio",
     type: "website",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mihsan Alam — Full Stack Developer",
+    title: "Mihsan Alam | Expert Full-Stack Developer | React & Next.js",
     description:
-      "Building real-world web and mobile applications. Check out my projects and get in touch.",
+      "Elevate your business with custom web applications and e-commerce platforms. Mihsan Alam is a highly skilled Full-Stack Developer based in Bangladesh, specializing in React, Next.js, and Node.js.",
   },
 };
 
