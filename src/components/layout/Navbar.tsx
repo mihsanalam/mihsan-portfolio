@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import ThemeToggle from "@/components/ui/ThemeToggle";
+import { Menu, X, Mail } from "lucide-react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { NavLink } from "@/types";
 
 const navLinks: NavLink[] = [
@@ -14,6 +14,12 @@ const navLinks: NavLink[] = [
   { label: "Experience", href: "#experience" },
   { label: "Testimonials", href: "#testimonials" },
   { label: "Contact", href: "#contact" },
+];
+
+const contactLinks = [
+  { icon: Mail, href: "mailto:mdmihsanalam@gmail.com", label: "Email", isMail: true },
+  { icon: FaLinkedinIn, href: "https://linkedin.com/in/mihsanalam", label: "LinkedIn", isMail: false },
+  { icon: FaGithub, href: "https://github.com/mihsanalam", label: "GitHub", isMail: false },
 ];
 
 export default function Navbar() {
@@ -120,19 +126,22 @@ export default function Navbar() {
 
             {/* Right side */}
             <div className="flex items-center gap-3">
-              <ThemeToggle />
-
-              {/* Hire Me CTA */}
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("#contact");
-                }}
-                className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-accent rounded-lg hover:bg-accent/90 transition-all duration-200 shadow-[0_0_20px_rgba(123,111,232,0.2)] hover:shadow-[0_0_25px_rgba(123,111,232,0.35)]"
-              >
-                Hire Me
-              </a>
+              {/* Contact icons: Email / LinkedIn / GitHub */}
+              <div className="hidden lg:flex items-center gap-1">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.isMail ? undefined : "_blank"}
+                    rel={link.isMail ? undefined : "noopener noreferrer"}
+                    aria-label={link.label}
+                    title={link.isMail ? "mdmihsanalam@gmail.com" : link.label}
+                    className="p-2 rounded-lg text-text-secondary hover:text-accent hover:bg-accent/10 transition-all duration-300"
+                  >
+                    <link.icon size={17} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
 
               {/* Mobile menu button */}
               <button
@@ -174,16 +183,21 @@ export default function Navbar() {
                   </button>
                 );
               })}
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleClick("#contact");
-                }}
-                className="block w-full text-center mt-2 px-4 py-3 text-sm font-medium text-white bg-accent rounded-lg"
-              >
-                Hire Me
-              </a>
+              {/* Mobile contact icons: Email / LinkedIn / GitHub */}
+              <div className="flex items-center justify-center gap-3 mt-3 pt-3 border-t border-border">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target={link.isMail ? undefined : "_blank"}
+                    rel={link.isMail ? undefined : "noopener noreferrer"}
+                    aria-label={link.label}
+                    className="p-2.5 rounded-lg bg-surface-2 border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-all"
+                  >
+                    <link.icon size={16} aria-hidden="true" />
+                  </a>
+                ))}
+              </div>
             </div>
           </motion.div>
         )}

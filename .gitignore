@@ -17,6 +17,7 @@
 /build
 
 # misc
+*.log
 .DS_Store
 *.pem
 

@@ -1,25 +1,8 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
-import { ArrowDown, Download } from "lucide-react";
-import { FaGithub, FaLinkedinIn, FaInstagram, FaFacebookF } from "react-icons/fa";
-
-const socialLinks = [
-  { icon: FaGithub, href: "https://github.com/mihsanalam", label: "GitHub" },
-  { icon: FaLinkedinIn, href: "https://linkedin.com/in/mihsanalam", label: "LinkedIn" },
-  { icon: FaInstagram, href: "https://www.instagram.com/mihsanalam/", label: "Instagram" },
-  { icon: FaFacebookF, href: "https://www.facebook.com/mdmihsanalam", label: "Facebook" },
-];
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <section
       id="hero"
@@ -48,146 +31,24 @@ export default function Hero() {
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-6"
+            className="space-y-4"
           >
-            {/* Available badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">
-                Available for work
-              </span>
-            </motion.div>
-
-            <div className="space-y-2">
-              <h1 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-text-primary leading-tight">
-                Full-Stack Developer Building{" "}
-                <span className="text-accent">Websites,</span>{" "}
-                E-commerce &{" "}
-                <span className="text-accent relative inline-block whitespace-nowrap">
-                  Custom Web Apps
-                  <svg
-                    className="absolute -bottom-2 left-0 w-full"
-                    viewBox="0 0 200 8"
-                    fill="none"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M1 5.5C40 2 80 2 100 4C120 6 160 6 199 3"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      className="text-accent/40"
-                    />
-                  </svg>
-                </span>{" "}
-                for Businesses
-              </h1>
-              <p className="text-sm text-text-secondary font-medium pt-1">
-                17-year-old self-taught developer, based in Dhaka &mdash; building real software for real businesses.
+            <div className="space-y-3">
+              <p className="text-lg sm:text-xl font-medium text-accent font-mono">
+                Hi, Mihsan here.
               </p>
-            </div>
-
-            {/* Typing animation */}
-            <div className="h-8 flex items-center">
-              <span className="text-accent font-mono text-sm mr-2">{">"}</span>
-              {mounted ? (
-                <TypeAnimation
-                  sequence={[
-                    "E-commerce & Business Websites",
-                    2000,
-                    "Custom Admin Dashboards",
-                    2000,
-                    "Inventory Management Systems",
-                    2000,
-                    "SaaS & Custom Web Applications",
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={40}
-                  repeat={Infinity}
-                  className="text-sm sm:text-base text-text-secondary font-mono"
-                />
-              ) : (
-                <span className="text-sm sm:text-base text-text-secondary font-mono">
-                  E-commerce & Business Websites
-                </span>
-              )}
-            </div>
-
-            <p className="text-text-secondary leading-relaxed max-w-lg text-base">
-              Helping businesses establish a strong online presence through modern websites, e-commerce stores, and custom software solutions.
-            </p>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-3 pt-2">
-              <a
-                href="#projects"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-accent rounded-xl hover:bg-accent/90 transition-all duration-300 shadow-[0_0_20px_rgba(123,111,232,0.25)] hover:shadow-[0_0_30px_rgba(123,111,232,0.4)]"
-              >
-                View Projects
-                <ArrowDown size={16} aria-hidden="true" />
-              </a>
-              <a
-                href="#contact"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-text-primary bg-surface border border-border rounded-xl hover:border-accent/40 hover:bg-surface-2 transition-all duration-300"
-              >
-                Hire Me
-              </a>
-            </div>
-
-            {/* Stats Row */}
-            <motion.div
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="flex flex-wrap items-center gap-8 pt-6 border-t border-border/40 max-w-lg"
-            >
-              <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">15+</h3>
-                <p className="text-xs font-medium text-text-secondary mt-1">Projects Built</p>
-              </div>
-              <div className="hidden sm:block w-px h-8 bg-border/60" />
-              <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">30+</h3>
-                <p className="text-xs font-medium text-text-secondary mt-1">Technologies</p>
-              </div>
-              <div className="hidden sm:block w-px h-8 bg-border/60" />
-              <div>
-                <h3 className="text-2xl font-extrabold text-accent font-mono leading-none">3+ Years</h3>
-                <p className="text-xs font-medium text-text-secondary mt-1">Building Web Apps</p>
-              </div>
-            </motion.div>
-
-            {/* Social Icons */}
-            <div className="flex gap-3 pt-2">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2.5 rounded-lg bg-surface border border-border text-text-secondary hover:text-accent hover:border-accent/40 transition-all duration-300 hover:shadow-[0_0_15px_rgba(123,111,232,0.1)]"
-                  aria-label={social.label}
-                >
-                  <social.icon size={18} aria-hidden="true" />
-                </a>
-              ))}
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-accent leading-tight">
+                Full Stack Engineer
+                <span className="mx-2 font-medium">|</span>
+                Open Source Contributor
+              </h1>
+              <p className="text-base text-text-secondary leading-relaxed max-w-lg">
+                Architecting{" "}
+                <span className="text-text-primary font-medium">scalable custom applications</span>{" "}
+                &{" "}
+                <span className="text-text-primary font-medium">high-performance web ecosystems</span>{" "}
+                &mdash; 17-year-old self-taught developer based in Dhaka, building real software for real businesses.
+              </p>
             </div>
           </motion.div>
 
@@ -214,27 +75,6 @@ export default function Hero() {
                   style={{ objectPosition: "0% 0%", marginLeft: "-10px" }}
                 />
               </div>
-
-              {/* Floating tech badges */}
-              {[
-                { label: "React", x: "-15%", y: "10%", delay: 0 },
-                { label: "Next.js", x: "85%", y: "15%", delay: 0.3 },
-                { label: "React Native", x: "-25%", y: "42%", delay: 0.6 },
-                { label: "Node.js", x: "88%", y: "45%", delay: 0.9 },
-                { label: "TypeScript", x: "-10%", y: "75%", delay: 1.2 },
-                { label: "Supabase", x: "80%", y: "75%", delay: 1.5 },
-              ].map((badge) => (
-                <motion.div
-                  key={badge.label}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.8 + badge.delay * 0.3 }}
-                  className="absolute px-2.5 py-1 bg-surface/90 backdrop-blur-sm border border-border rounded-lg text-[11px] font-mono text-text-secondary shadow-lg"
-                  style={{ left: badge.x, top: badge.y }}
-                >
-                  {badge.label}
-                </motion.div>
-              ))}
             </div>
           </motion.div>
         </div>
