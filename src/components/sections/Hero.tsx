@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { Mail } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -26,38 +27,12 @@ export default function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left Column — Text */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="space-y-4"
-          >
-            <div className="space-y-3">
-              <p className="text-lg sm:text-xl font-medium text-accent font-mono">
-                Hi, Mihsan here.
-              </p>
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-accent leading-tight">
-                Full Stack Engineer
-                <span className="mx-2 font-medium">|</span>
-                Open Source Contributor
-              </h1>
-              <p className="text-base text-text-secondary leading-relaxed max-w-lg">
-                Architecting{" "}
-                <span className="text-text-primary font-medium">scalable custom applications</span>{" "}
-                &{" "}
-                <span className="text-text-primary font-medium">high-performance web ecosystems</span>{" "}
-                &mdash; 17-year-old self-taught developer based in Dhaka, building real software for real businesses.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right Column — Profile Visual */}
+          {/* Left Column — Profile Visual */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
             <div className="relative">
               {/* Glow ring */}
@@ -75,6 +50,33 @@ export default function Hero() {
                   style={{ objectPosition: "0% 0%", marginLeft: "-10px" }}
                 />
               </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column — Text */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="space-y-6 order-1 lg:order-2"
+          >
+            <div className="space-y-5">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary leading-tight">
+                Hi, <span className="text-accent">Mihsan</span> here.
+              </h1>
+              <p className="text-lg text-text-secondary leading-relaxed max-w-lg">
+                Full Stack Engineer and Open Source Contributor. I architect{" "}
+                <span className="text-text-primary font-medium">scalable custom applications</span>{" "}
+                &{" "}
+                <span className="text-text-primary font-medium">high-performance web ecosystems</span>.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg border-2 border-accent bg-white text-gray-900 font-semibold hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 transition-all duration-300"
+              >
+                <Mail size={18} aria-hidden="true" />
+                Say hi!
+              </a>
             </div>
           </motion.div>
         </div>
