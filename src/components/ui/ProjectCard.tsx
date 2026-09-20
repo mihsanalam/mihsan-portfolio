@@ -71,7 +71,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
 
         {/* Hover zoom/view details overlay */}
         <div className="absolute inset-0 bg-black/45 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center z-20">
-          <span className="text-xs text-text-primary font-medium bg-surface/90 backdrop-blur-sm px-4.5 py-2.2 rounded-xl border border-border shadow-md">
+          <span className="text-xs text-text-primary font-medium bg-surface/90 backdrop-blur-sm px-4 py-2 rounded-xl border border-border shadow-md">
             View Case Study →
           </span>
         </div>
