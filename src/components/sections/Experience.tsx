@@ -20,7 +20,6 @@ export default function Experience() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-sm font-mono text-accent">05. Career</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
             <span className="text-accent mr-3">/</span>experience
           </h2>

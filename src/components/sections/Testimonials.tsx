@@ -18,9 +18,8 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="mb-16 text-center"
         >
-          <span className="text-sm font-mono text-accent">06. Feedback</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
-            What People Say
+            <span className="text-accent mr-3">/</span>testimonials
           </h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4 mx-auto" />
         </motion.div>

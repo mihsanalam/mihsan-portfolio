@@ -31,9 +31,8 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-sm font-mono text-accent">03. Work</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
-            Featured Projects
+            <span className="text-accent mr-3">/</span>projects
           </h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
         </motion.div>
