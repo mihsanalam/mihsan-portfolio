@@ -29,9 +29,8 @@ export interface Experience {
   company: string;
   role: string;
   dateRange: string;
-  description: string;
-  tags: string[];
-  logo: string;
+  highlights: string[];
+  logo?: string;
   current?: boolean;
 }
 
