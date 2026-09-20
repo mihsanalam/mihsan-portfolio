@@ -59,7 +59,7 @@ export default function Contact() {
     <section id="contact" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16">
-          <span className="text-sm font-mono text-accent">08. Contact</span>
+          <span className="text-sm font-mono text-accent">07. Contact</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">Let&apos;s Work Together</h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
         </motion.div>
@@ -68,13 +68,23 @@ export default function Contact() {
           {/* Left - Contact Info */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
             <p className="text-sm text-text-secondary leading-relaxed italic border-l-2 border-accent/40 pl-3">
-              If you&apos;re a business owner losing customers to competitors who are already
-              online, or dealing with manual processes that should be automated &mdash; let&apos;s talk.
+              As a Full Stack Engineer, I&apos;ve shipped production platforms for real businesses &mdash;
+              from e-commerce storefronts to offline-first inventory apps with AI-powered features.
+              If your business needs a digital product that actually works, let&apos;s talk.
             </p>
 
             <p className="text-text-secondary leading-relaxed">
-              I&apos;m currently available for freelance work and full-time opportunities.
-              If you have a project in mind or just want to chat, feel free to reach out!
+              I&apos;m currently open to freelance projects and full-time opportunities. Have an idea
+              in mind? Reach out here, or connect with me on{" "}
+              <a
+                href="https://linkedin.com/in/mihsanalam"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent font-medium hover:underline underline-offset-2"
+              >
+                LinkedIn
+              </a>{" "}
+              &mdash; I&apos;d love to hear about it!
             </p>
 
             <div className="space-y-4">
