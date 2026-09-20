@@ -34,13 +34,6 @@ export interface Experience {
   current?: boolean;
 }
 
-export interface Testimonial {
-  quote: string;
-  author: string;
-  role: string;
-  image?: string;
-}
-
 export interface NavLink {
   label: string;
   href: string;
