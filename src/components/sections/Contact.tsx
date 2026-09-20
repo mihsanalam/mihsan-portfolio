@@ -69,9 +69,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
             <p className="text-text-secondary leading-relaxed">
               Full Stack Engineer shipping production platforms for real businesses &mdash; from
-              e-commerce storefronts to offline-first inventory apps. Open to freelance projects
-              and full-time opportunities. Have an idea in mind? Reach out here, or connect with
-              me on{" "}
+              e-commerce storefronts to offline-first inventory apps. Connect with me on{" "}
               <a
                 href="https://linkedin.com/in/mihsanalam"
                 target="_blank"
