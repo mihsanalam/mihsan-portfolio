@@ -61,7 +61,7 @@ export default function Hero() {
             className="space-y-6 order-1 lg:order-2"
           >
             <div className="space-y-5">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-text-primary leading-tight">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
                 Hi, <span className="text-accent">Mihsan</span> here.
               </h1>
               <p className="text-lg text-text-secondary leading-relaxed max-w-lg">
