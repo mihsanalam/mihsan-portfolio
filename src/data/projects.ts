@@ -183,4 +183,18 @@ export const projects: Project[] = [
     imageAlt: "AI Image Enhancer web application interface screenshot",
     layout: "desktop",
   },
+  {
+    id: "landing-page",
+    title: "Landing Page",
+    description: "Placeholder entry — replace with your landing page details.",
+    longDescription: "TODO: add the full landing page description here.",
+    images: [],
+    stack: ["React", "Tailwind CSS"],
+    github: null,
+    liveUrl: null,
+    features: ["TODO: add feature"],
+    category: ["Web"],
+    imageAlt: "Landing page preview",
+    layout: "desktop",
+  },
 ];
