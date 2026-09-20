@@ -67,15 +67,11 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left - Contact Info */}
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="space-y-6">
-            <p className="text-sm text-text-secondary leading-relaxed italic border-l-2 border-accent/40 pl-3">
-              As a Full Stack Engineer, I&apos;ve shipped production platforms for real businesses &mdash;
-              from e-commerce storefronts to offline-first inventory apps with AI-powered features.
-              If your business needs a digital product that actually works, let&apos;s talk.
-            </p>
-
             <p className="text-text-secondary leading-relaxed">
-              I&apos;m currently open to freelance projects and full-time opportunities. Have an idea
-              in mind? Reach out here, or connect with me on{" "}
+              Full Stack Engineer shipping production platforms for real businesses &mdash; from
+              e-commerce storefronts to offline-first inventory apps. Open to freelance projects
+              and full-time opportunities. Have an idea in mind? Reach out here, or connect with
+              me on{" "}
               <a
                 href="https://linkedin.com/in/mihsanalam"
                 target="_blank"
@@ -83,8 +79,8 @@ export default function Contact() {
                 className="text-accent font-medium hover:underline underline-offset-2"
               >
                 LinkedIn
-              </a>{" "}
-              &mdash; I&apos;d love to hear about it!
+              </a>
+              .
             </p>
 
             <div className="space-y-4">
@@ -111,14 +107,6 @@ export default function Contact() {
                   <p className="text-sm text-text-primary">Dhaka, Bangladesh</p>
                 </div>
               </div>
-            </div>
-
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <span className="text-xs font-medium text-emerald-600 dark:text-emerald-400">Available for work</span>
             </div>
           </motion.div>
 
