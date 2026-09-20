@@ -78,7 +78,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
 
         {/* Featured Tag */}
         {project.featured && (
-          <div className="absolute top-3 right-3 px-2.5 py-1 bg-accent text-white text-xs font-semibold rounded-md z-25">
+          <div className="absolute top-3 right-3 px-2.5 py-1 bg-accent text-white text-xs font-semibold rounded-md z-30">
             Featured
           </div>
         )}
