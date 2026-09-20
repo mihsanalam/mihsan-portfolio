@@ -97,7 +97,7 @@ export default function Navbar() {
                 />
               </div>
               <span className="text-lg font-bold text-text-primary tracking-wide">
-                Mihsan<span className="text-accent">.</span>
+                Mihsan
               </span>
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300" />
             </a>
