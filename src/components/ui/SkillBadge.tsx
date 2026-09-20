@@ -39,7 +39,7 @@ import {
   SiSanity,
 } from "react-icons/si";
 import { VscVscode } from "react-icons/vsc";
-import { Code, Mic } from "lucide-react";
+import { Code, Mic, Plug } from "lucide-react";
 import { Skill } from "@/types";
 
 const InsForgeIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -96,6 +96,7 @@ const iconMap: Record<string, React.ComponentType<any>> = {
   sanity: SiSanity,
   inforge: InsForgeIcon,
   speech: Mic,
+  api: Plug,
 };
 
 interface SkillBadgeProps {
