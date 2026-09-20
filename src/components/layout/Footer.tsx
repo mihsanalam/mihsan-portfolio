@@ -95,12 +95,15 @@ export default function Footer() {
             <p className="text-xs text-text-secondary">
               &copy; {new Date().getFullYear()} Mihsan Alam.
             </p>
-            <p className="text-[11px] text-text-secondary">
-              Powered by <span className="font-semibold text-text-primary">Obxidix</span>
-            </p>
-            <p className="text-[10px] text-text-secondary/70 font-mono">
-              Moving You Toward Your Potential
-            </p>
+            {/*
+              Attribution kept for reference — removed from the rendered footer:
+              <p className="text-[11px] text-text-secondary">
+                Powered by <span className="font-semibold text-text-primary">Obxidix</span>
+              </p>
+              <p className="text-[10px] text-text-secondary/70 font-mono">
+                Moving You Toward Your Potential
+              </p>
+            */}
           </div>
           <button
             onClick={scrollToTop}
