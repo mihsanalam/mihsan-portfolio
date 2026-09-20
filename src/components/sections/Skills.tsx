@@ -27,7 +27,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="mb-16"
         >
-          <span className="text-sm font-mono text-accent">03. Skills</span>
+          <span className="text-sm font-mono text-accent">04. Skills</span>
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
             Tech Stack
           </h2>
