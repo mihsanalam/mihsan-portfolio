@@ -15,11 +15,17 @@ import { useEffect, useRef } from "react";
  */
 
 // ── Source ─────────────────────────────────────────────────────────────────
-// Place your portrait at public/images/portrait.jpg — nothing else to change.
-const IMAGE_SRC = "/images/portrait.jpg";
+// The portrait photo (public/images/portrait.png).
+const IMAGE_SRC = "/images/portrait.png";
 // Shown (as dim flat dots) until the portrait file exists, so the layout
 // never renders an empty box.
 const FALLBACK_SRC = "/images/silhouette.svg";
+
+// ── Blue-background keying ────────────────────────────────────────────────
+// The source photo has a studio-blue backdrop; these thresholds remove it so
+// only the person renders. Pixels are keyed out when blue strongly dominates.
+const KEY_BLUE_MIN = 0.35; // min blue channel (0..1) for a background pixel
+const KEY_DOMINANCE = 0.18; // how much blue must exceed red & green
 
 // ── Dot style ──────────────────────────────────────────────────────────────
 const DOT_SPACING = 6; // px between grid samples — lower = denser
@@ -31,8 +37,12 @@ const BG_CUTOFF = 0.12; // luminance at/below this is treated as background
 const LUMINANCE_GAMMA = 0.85; // <1 lifts mid-tones, >1 pushes them down
 const MIN_ALPHA = 0.18; // dimmest visible dot (silhouette fill)
 const MAX_ALPHA = 0.4; // cap for non-highlight dots (stays subtle)
-const HIGHLIGHT_THRESHOLD = 0.52; // luminance where the teal glow starts
-const HIGHLIGHT_SPREAD = 0.3; // how fast dots reach full glow above it
+const HIGHLIGHT_THRESHOLD = 0.5; // luminance where the teal glow starts
+// Face zone (fractions of canvas size) — highlights concentrate here so the
+// white shirt doesn't out-glow the face, like the reference
+const FACE_X = 0.5;
+const FACE_Y = 0.42;
+const FACE_R = 0.25; // radius as a fraction of canvas width
 const PORTRAIT_SCALE = 0.82; // fraction of the canvas the portrait fills
 
 // ── Motion ─────────────────────────────────────────────────────────────────
@@ -113,19 +123,30 @@ export default function DotPortrait({
       for (let y = 0; y < h; y += DOT_SPACING) {
         for (let x = 0; x < w; x += DOT_SPACING) {
           const i = (y * w + x) * 4;
-          const luma =
-            (0.2126 * data[i] + 0.7152 * data[i + 1] + 0.0722 * data[i + 2]) /
-            255;
+          const r = data[i] / 255;
+          const gr = data[i + 1] / 255;
+          const b = data[i + 2] / 255;
+          // Key out the blue studio backdrop
+          if (b > KEY_BLUE_MIN && b - r > KEY_DOMINANCE && b - gr > KEY_DOMINANCE)
+            continue;
+          const luma = (0.2126 * r + 0.7152 * gr + 0.0722 * b);
           // Background (near-black) produces no dots
           if (luma <= BG_CUTOFF) continue;
           const g = Math.pow(
             (luma - BG_CUTOFF) / (1 - BG_CUTOFF),
             LUMINANCE_GAMMA
           );
-          // Only the brightest regions (face, highlights) glow
-          let glow = (luma - HIGHLIGHT_THRESHOLD) / HIGHLIGHT_SPREAD;
-          glow = Math.min(1, Math.max(0, glow));
-          glow *= glow;
+          // Only the brightest dots inside the face zone glow
+          let glow = 0;
+          const fdx = x - w * FACE_X;
+          const fdy = y - h * FACE_Y;
+          if (
+            luma > HIGHLIGHT_THRESHOLD &&
+            Math.hypot(fdx, fdy) < w * FACE_R
+          ) {
+            glow = (luma - HIGHLIGHT_THRESHOLD) / (1 - HIGHLIGHT_THRESHOLD);
+            glow *= glow;
+          }
           dots.push({
             hx: x,
             hy: y,
