@@ -15,17 +15,18 @@ import { useEffect, useRef } from "react";
  */
 
 // ── Source ─────────────────────────────────────────────────────────────────
-// The portrait photo (public/images/portrait.png).
-const IMAGE_SRC = "/images/portrait.png";
+// The portrait photo (public/images/hero.webp) — dark navy studio shot.
+const IMAGE_SRC = "/images/hero.webp";
 // Shown (as dim flat dots) until the portrait file exists, so the layout
 // never renders an empty box.
 const FALLBACK_SRC = "/images/silhouette.svg";
 
 // ── Blue-background keying ────────────────────────────────────────────────
-// The source photo has a studio-blue backdrop; these thresholds remove it so
-// only the person renders. Pixels are keyed out when blue strongly dominates.
-const KEY_BLUE_MIN = 0.35; // min blue channel (0..1) for a background pixel
-const KEY_DOMINANCE = 0.18; // how much blue must exceed red & green
+// Only needed for photos with a bright blue backdrop (e.g. the old ID shot).
+// hero.webp has a near-black studio backdrop removed by BG_CUTOFF instead, so
+// these are set high enough to never trigger (they would eat the navy blazer).
+const KEY_BLUE_MIN = 0.6; // min blue channel (0..1) for a background pixel
+const KEY_DOMINANCE = 0.3; // how much blue must exceed red & green
 
 // ── Dot style ──────────────────────────────────────────────────────────────
 const DOT_SPACING = 6; // px between grid samples — lower = denser
@@ -33,16 +34,17 @@ const MIN_DOT_SIZE = 0.7; // base dash size (nearly uniform, like the ref)
 const MAX_DOT_SIZE = 1.2;
 const DOT_COLOR = "#35D6C8"; // glowing highlight dots
 const DIM_COLOR = "#3D5A80"; // dim silhouette dashes (muted steel blue)
-const BG_CUTOFF = 0.12; // luminance at/below this is treated as background
+const BG_CUTOFF = 0.14; // luminance at/below this is treated as background
 const LUMINANCE_GAMMA = 0.85; // <1 lifts mid-tones, >1 pushes them down
 const MIN_ALPHA = 0.18; // dimmest visible dot (silhouette fill)
 const MAX_ALPHA = 0.4; // cap for non-highlight dots (stays subtle)
 const HIGHLIGHT_THRESHOLD = 0.5; // luminance where the teal glow starts
 // Face zone (fractions of canvas size) — highlights concentrate here so the
-// white shirt doesn't out-glow the face, like the reference
+// white shirt doesn't out-glow the face, like the reference. Tuned for
+// hero.webp: 3:4 portrait, face sits in the upper third when contain-fit.
 const FACE_X = 0.5;
-const FACE_Y = 0.42;
-const FACE_R = 0.25; // radius as a fraction of canvas width
+const FACE_Y = 0.3;
+const FACE_R = 0.15; // radius as a fraction of canvas width
 const PORTRAIT_SCALE = 0.82; // fraction of the canvas the portrait fills
 
 // ── Motion ─────────────────────────────────────────────────────────────────
