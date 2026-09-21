@@ -223,10 +223,14 @@ export const projects: Project[] = [
     longDescription:
       "A complete internal management system built for a real garments business, replacing spreadsheets with three role-based consoles: Owner (dashboard, analytics, reports, audit log, user management), Production Collector (fabric intake, batch tracking, finished goods, warehouse search), and Operator (work orders, Kanban phase board, POS). Highlights include transaction-safe sequential numbering for batches and invoices, camera barcode scanning with QR batch labels, full batch traceability from fabric intake to sale, printable invoices and money receipts, dues aging with client statements, and an offline queue so phase updates survive internet drops on the shop floor. Security includes RBAC middleware, bcrypt credentials auth with JWT sessions (NextAuth v5), login rate-limiting with account lockout, session invalidation on password change, and a full audit trail with before/after payloads. Engineering: 48 REST route handlers over raw MySQL (mysql2), SWR live polling, Recharts analytics, bilingual English/Bangla UI, Cloudinary image hosting, Vitest unit tests, MySQL backup tooling, and a GitHub Actions CI pipeline running typecheck, lint, and tests on every PR.",
     images: [
-      "/projects/jamil_creation_invoice/home.png",
-      "/projects/jamil_creation_invoice/dashboard.png",
-      "/projects/jamil_creation_invoice/create_invoice.png",
-      "/projects/jamil_creation_invoice/download.png",
+      "/projects/jamil_creation_software/dashboard.webp",
+      "/projects/jamil_creation_software/phase_board.png",
+      "/projects/jamil_creation_software/batch_list.png",
+      "/projects/jamil_creation_software/sale_due.webp",
+      "/projects/jamil_creation_software/reports.webp",
+      "/projects/jamil_creation_software/return.png",
+      "/projects/jamil_creation_software/english.png",
+      "/projects/jamil_creation_software/bangla.png",
     ],
     stack: [
       "Next.js",
@@ -252,7 +256,7 @@ export const projects: Project[] = [
     ],
     category: ["Production", "Web", "Full-Stack"],
     featured: true,
-    imageAlt: "Jamil Creations Garments ERP owner dashboard screenshot",
+    imageAlt: "Jamil Creations Garments ERP owner dashboard with KPI cards and production pipeline",
     layout: "desktop",
   },
 ];
