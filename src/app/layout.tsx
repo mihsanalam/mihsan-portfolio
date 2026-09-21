@@ -13,8 +13,10 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
 });
 
+const siteUrl = "https://www.mihsanalam.com";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.mihsanalam.com"),
+  metadataBase: new URL(siteUrl),
   title: "Mihsan Alam | Full Stack Engineer",
   description:
     "Mihsan Alam is a Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js. Studying at BAF Shaheen College Kurmitola, based in Dhaka, Bangladesh.",
@@ -28,6 +30,7 @@ export const metadata: Metadata = {
   },
   keywords: [
     "Mihsan Alam",
+    "Md Mihsan Alam",
     "Mihsan Alam Portfolio",
     "Mihsan Alam Full Stack Engineer",
     "Full Stack Engineer",
@@ -43,32 +46,71 @@ export const metadata: Metadata = {
     "Dhaka",
     "Bangladesh",
   ],
-  authors: [{ name: "Mihsan Alam" }],
+  authors: [{ name: "Mihsan Alam", url: siteUrl }],
+  creator: "Mihsan Alam",
+  publisher: "Mihsan Alam",
+  alternates: { canonical: siteUrl },
   openGraph: {
     title: "Mihsan Alam | Full Stack Engineer",
     description:
       "Mihsan Alam is a Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js. Studying at BAF Shaheen College Kurmitola, based in Dhaka, Bangladesh.",
-    url: "https://www.mihsanalam.com",
-    siteName: "Mihsan Alam Portfolio",
+    url: siteUrl,
+    siteName: "Mihsan Alam",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 800,
+        height: 800,
+        alt: "Mihsan Alam — Full Stack Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Mihsan Alam | Full Stack Engineer",
     description:
       "Mihsan Alam is a Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js. Studying at BAF Shaheen College Kurmitola, based in Dhaka, Bangladesh.",
+    images: ["/images/profile.jpg"],
   },
 };
+
+// ─── Structured data ──────────────────────────────────────────────────────────
+// Entity-first schema: the @id + sameAs graph below is what helps Google merge
+// your website, GitHub, LinkedIn, Instagram, Facebook and any future
+// YouTube/TikTok presence into ONE entity ("Mihsan Alam") — the prerequisite
+// for a knowledge panel like Gazi Jarin's.
+//
+// ⚠️ NOTE: If/when you create a YouTube channel or TikTok account under your
+// name, add the URLs to `sameAs` below — video content is a big part of why
+// that panel shows an image grid + video cards.
 
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": `${siteUrl}/#person`,
   name: "Mihsan Alam",
+  alternateName: ["Md Mihsan Alam", "mihsanalam"],
+  givenName: "Mihsan",
+  familyName: "Alam",
   jobTitle: "Full Stack Engineer",
   description:
-    "Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js.",
-  url: "https://www.mihsanalam.com",
+    "Full Stack Engineer from Dhaka, Bangladesh, building production web and mobile applications with React, Next.js, React Native, and Node.js.",
+  url: siteUrl,
+  image: [
+    {
+      "@type": "ImageObject",
+      "@id": `${siteUrl}/#personlogo`,
+      url: `${siteUrl}/images/profile.jpg`,
+      caption: "Mihsan Alam",
+    },
+    {
+      "@type": "ImageObject",
+      url: `${siteUrl}/images/profile_2.jpeg`,
+      caption: "Mihsan Alam",
+    },
+  ],
   alumniOf: {
     "@type": "EducationalOrganization",
     name: "BAF Shaheen College Kurmitola",
@@ -78,13 +120,48 @@ const personSchema = {
     addressLocality: "Dhaka",
     addressCountry: "BD",
   },
-  knowsAbout: ["React", "Next.js", "React Native", "TypeScript", "Node.js", "MongoDB"],
+  knowsAbout: [
+    "React",
+    "Next.js",
+    "React Native",
+    "TypeScript",
+    "Node.js",
+    "MongoDB",
+    "Full Stack Development",
+    "Web Development",
+    "Mobile App Development",
+  ],
   sameAs: [
-    "https://linkedin.com/in/mihsanalam",
+    "https://www.linkedin.com/in/mihsanalam",
     "https://github.com/mihsanalam",
     "https://www.instagram.com/mihsanalam/",
     "https://www.facebook.com/mdmihsanalam",
+    "https://www.youtube.com/@mihsanalam",
+    // Add when created:
+    // "https://www.tiktok.com/@mihsanalam",
+    // "https://x.com/mihsanalam",
   ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  url: siteUrl,
+  name: "Mihsan Alam",
+  description:
+    "Portfolio of Mihsan Alam — Full Stack Engineer specializing in React, Next.js, React Native and Node.js applications.",
+  publisher: { "@id": `${siteUrl}/#person` },
+  inLanguage: "en",
+};
+
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "@id": `${siteUrl}/#profilepage`,
+  url: siteUrl,
+  dateModified: new Date().toISOString().split("T")[0],
+  mainEntity: { "@id": `${siteUrl}/#person` },
 };
 
 export default function RootLayout({
@@ -100,7 +177,9 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/images/mihsan_logo.png" />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify([profilePageSchema, personSchema, websiteSchema]),
+          }}
         />
       </head>
       <body
