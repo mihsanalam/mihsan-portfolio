@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
+import ParticleImage from "@/components/layout/ParticleImage";
 
 const focusAreas = [
   "Full-Stack Development",
@@ -37,15 +37,9 @@ export default function About() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
-            {/* Profile photo */}
-            <div className="relative w-full aspect-[4/5] max-w-[240px] mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
-              <Image
-                src="/images/about.webp"
-                alt="Mihsan Alam working - Full Stack Web Developer"
-                fill
-                sizes="(max-width: 640px) 100vw, 240px"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
-              />
+            {/* Interactive particle logo — dots break apart on hover */}
+            <div className="relative w-full max-w-[240px] mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
+              <ParticleImage className="w-full aspect-square" />
             </div>
           </motion.div>
 

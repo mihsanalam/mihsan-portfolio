@@ -1,7 +1,7 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
+import ParticleImage from "@/components/layout/ParticleImage";
 
 export default function Hero() {
   return (
@@ -38,18 +38,13 @@ export default function Hero() {
               {/* Glow ring */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-accent/20 via-accent-2/10 to-transparent blur-2xl animate-pulse" />
 
-              {/* Profile photo */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border overflow-hidden shadow-xl">
-                <Image
-                  src="/images/hero.webp"
-                  alt="Mihsan Alam - Full Stack Developer based in Dhaka"
-                  fill
-                  sizes="(max-width: 640px) 256px, 320px"
-                  priority
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                  style={{ objectPosition: "0% 0%", marginLeft: "-10px" }}
-                />
+              {/* Interactive particle logo — dots break apart on hover */}
+              <div className="relative rounded-3xl border-2 border-border bg-surface-2/40 shadow-xl overflow-hidden">
+                <ParticleImage className="w-64 h-64 sm:w-80 sm:h-80" />
               </div>
+              <p className="mt-3 text-center text-xs text-text-secondary/70">
+                hover the dots
+              </p>
             </div>
           </motion.div>
 
