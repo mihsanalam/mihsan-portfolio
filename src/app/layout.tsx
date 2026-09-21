@@ -60,9 +60,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/images/profile.jpg",
-        width: 800,
-        height: 800,
+        url: "/images/mihsan_logo.png",
+        width: 1024,
+        height: 1024,
         alt: "Mihsan Alam — Full Stack Engineer",
       },
     ],
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
     title: "Mihsan Alam | Full Stack Engineer",
     description:
       "Mihsan Alam is a Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js. Studying at BAF Shaheen College Kurmitola, based in Dhaka, Bangladesh.",
-    images: ["/images/profile.jpg"],
+    images: ["/images/mihsan_logo.png"],
   },
 };
 
@@ -102,13 +102,8 @@ const personSchema = {
     {
       "@type": "ImageObject",
       "@id": `${siteUrl}/#personlogo`,
-      url: `${siteUrl}/images/profile.jpg`,
-      caption: "Mihsan Alam",
-    },
-    {
-      "@type": "ImageObject",
-      url: `${siteUrl}/images/profile_2.jpeg`,
-      caption: "Mihsan Alam",
+      url: `${siteUrl}/images/mihsan_logo.png`,
+      caption: "Mihsan Alam logo",
     },
   ],
   alumniOf: {
