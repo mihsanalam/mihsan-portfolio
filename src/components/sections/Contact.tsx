@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send } from "lucide-react";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn, FaYoutube } from "react-icons/fa";
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
@@ -96,6 +96,14 @@ export default function Contact() {
                 <div>
                   <p className="text-xs text-text-secondary">LinkedIn</p>
                   <p className="text-sm text-text-primary group-hover:text-accent transition-colors">linkedin.com/in/mihsanalam</p>
+                </div>
+              </a>
+
+              <a href="https://www.youtube.com/@mihsanalam" target="_blank" rel="noopener noreferrer" aria-label="YouTube channel of Mihsan Alam" className="flex items-center gap-3 p-4 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all group">
+                <div className="p-2.5 rounded-lg bg-accent/10 text-accent"><FaYoutube size={18} aria-hidden="true" /></div>
+                <div>
+                  <p className="text-xs text-text-secondary">YouTube</p>
+                  <p className="text-sm text-text-primary group-hover:text-accent transition-colors">youtube.com/@mihsanalam</p>
                 </div>
               </a>
 
