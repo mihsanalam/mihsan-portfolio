@@ -22,15 +22,18 @@ const IMAGE_SRC = "/images/portrait.jpg";
 const FALLBACK_SRC = "/images/silhouette.svg";
 
 // ── Dot style ──────────────────────────────────────────────────────────────
-const DOT_SPACING = 4; // px between grid samples — lower = denser
-const MIN_DOT_SIZE = 0.4;
-const MAX_DOT_SIZE = 2.2;
-const DOT_COLOR = "#35D6C8";
-const BG_CUTOFF = 0.1; // luminance at/below this is treated as background
+const DOT_SPACING = 6; // px between grid samples — lower = denser
+const MIN_DOT_SIZE = 0.7; // base dash size (nearly uniform, like the ref)
+const MAX_DOT_SIZE = 1.2;
+const DOT_COLOR = "#35D6C8"; // glowing highlight dots
+const DIM_COLOR = "#3D5A80"; // dim silhouette dashes (muted steel blue)
+const BG_CUTOFF = 0.12; // luminance at/below this is treated as background
 const LUMINANCE_GAMMA = 0.85; // <1 lifts mid-tones, >1 pushes them down
-const MIN_ALPHA = 0.12; // dimmest visible dot (silhouette fill)
-const MAX_ALPHA = 0.95;
-const PORTRAIT_SCALE = 0.86; // fraction of the canvas the portrait fills
+const MIN_ALPHA = 0.18; // dimmest visible dot (silhouette fill)
+const MAX_ALPHA = 0.4; // cap for non-highlight dots (stays subtle)
+const HIGHLIGHT_THRESHOLD = 0.52; // luminance where the teal glow starts
+const HIGHLIGHT_SPREAD = 0.3; // how fast dots reach full glow above it
+const PORTRAIT_SCALE = 0.82; // fraction of the canvas the portrait fills
 
 // ── Motion ─────────────────────────────────────────────────────────────────
 const WOBBLE_PX = 0.5; // idle drift amplitude
@@ -44,6 +47,7 @@ type Dot = {
   hy: number; // home y
   size: number;
   alpha: number;
+  glow: number; // 0..1 — above 0 the dot renders as a bright teal highlight
   phase: number;
   speed: number;
   shade: number; // static per-dot randomness
@@ -118,11 +122,16 @@ export default function DotPortrait({
             (luma - BG_CUTOFF) / (1 - BG_CUTOFF),
             LUMINANCE_GAMMA
           );
+          // Only the brightest regions (face, highlights) glow
+          let glow = (luma - HIGHLIGHT_THRESHOLD) / HIGHLIGHT_SPREAD;
+          glow = Math.min(1, Math.max(0, glow));
+          glow *= glow;
           dots.push({
             hx: x,
             hy: y,
             size: MIN_DOT_SIZE + (MAX_DOT_SIZE - MIN_DOT_SIZE) * g,
-            alpha: MIN_ALPHA + (MAX_ALPHA - MIN_ALPHA) * Math.pow(g, 1.5),
+            alpha: MIN_ALPHA + (MAX_ALPHA - MIN_ALPHA) * g,
+            glow,
             phase: Math.random() * Math.PI * 2,
             speed: 0.3 + Math.random() * 0.6,
             shade: Math.random(),
@@ -197,15 +206,37 @@ export default function DotPortrait({
           FLICKER / 2 +
           FLICKER * (0.5 + 0.5 * Math.sin(t * d.speed + d.phase));
 
-        ctx.globalAlpha = Math.min(1, d.alpha * flick + boost * 0.5);
-        const s = d.size * (1 + boost * 0.25) + d.shade * 0.1;
-        // Tiny horizontal stroke rather than a circle
-        ctx.fillRect(
-          d.hx + wobX + ox - s,
-          d.hy + wobY + oy - s * 0.55,
-          s * 2,
-          s * 1.1
-        );
+        if (d.glow > 0.02) {
+          // Highlight dot: soft teal halo + bright core
+          ctx.fillStyle = DOT_COLOR;
+          ctx.globalAlpha = 0.08 + 0.14 * d.glow + boost * 0.3;
+          ctx.beginPath();
+          ctx.arc(d.hx + ox, d.hy + oy, 3.2, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.globalAlpha = Math.min(
+            1,
+            (0.3 + 0.65 * d.glow) * flick + boost * 0.5
+          );
+          const s = d.size + d.glow * 0.7 + boost * 0.3;
+          ctx.fillRect(
+            d.hx + wobX + ox - s,
+            d.hy + wobY + oy - s * 0.55,
+            s * 2,
+            s * 1.1
+          );
+        } else {
+          // Dim, nearly uniform silhouette dash (the reference look)
+          ctx.fillStyle = DIM_COLOR;
+          ctx.globalAlpha = Math.min(1, d.alpha * flick + boost * 0.35);
+          const s = d.size + d.shade * 0.15;
+          ctx.fillRect(
+            d.hx + wobX + ox - s,
+            d.hy + wobY + oy - s * 0.55,
+            s * 2,
+            s * 1.1
+          );
+        }
       }
       ctx.globalAlpha = 1;
     };
