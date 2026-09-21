@@ -30,19 +30,22 @@ type Particle = {
   speed: number;
   size: number;
   color: string;
+  // Random 0..1 used for subtle per-dot brightness variation
+  shade: number;
 };
 
-// Read a CSS custom property from :root (falls back to dark-theme values)
-function readThemeColors(): { accent: string; accent2: string } {
-  if (typeof window === "undefined") return { accent: "#7B6FE8", accent2: "#4FC3C3" };
+// Read CSS custom properties from :root (falls back to dark-theme values)
+function readThemeColors(): { accent: string; accent2: string; dim: string } {
+  if (typeof window === "undefined")
+    return { accent: "#7B6FE8", accent2: "#4FC3C3", dim: "#6B7BA8" };
   const style = getComputedStyle(document.documentElement);
   return {
     accent: style.getPropertyValue("--accent").trim() || "#7B6FE8",
     accent2: style.getPropertyValue("--accent-2").trim() || "#4FC3C3",
+    dim: style.getPropertyValue("--text-secondary").trim() || "#6B7BA8",
   };
 }
 
-const LOGO_SRC = "/images/mihsan_logo.png";
 // Spacing between sampled dots in source-image pixels (lower = more dots)
 const SAMPLE_GAP = 4;
 // How strongly dots spring back to their home position
@@ -58,13 +61,17 @@ const INTERACT_FORCE = 0.35;
 type ParticleImageProps = {
   // Tailwind size classes, e.g. "w-64 h-64 sm:w-80 sm:h-80"
   className?: string;
-  // Image the dots assemble into (defaults to the M logo)
+  // Image the dots assemble into (defaults to the person silhouette)
   src?: string;
+  // "portrait": dot-matrix silhouette with a drifting glow highlight
+  // "logo": brand-colored round dots tracing a logo
+  variant?: "portrait" | "logo";
 };
 
 export default function ParticleImage({
   className = "w-64 h-64 sm:w-80 sm:h-80",
-  src = LOGO_SRC,
+  src = "/images/silhouette.svg",
+  variant = "portrait",
 }: ParticleImageProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -114,17 +121,18 @@ export default function ParticleImage({
         const oy = (h - side) / 2;
         octx.drawImage(img, ox, oy, side, side);
 
-        // Sample the logo pixels into a dot grid
+        // Sample the shape into a dot grid
         const data = octx.getImageData(0, 0, w, h).data;
         const colors = readThemeColors();
         const particles: Particle[] = [];
+        const gap = variant === "portrait" ? 5 : SAMPLE_GAP;
 
-        for (let y = 0; y < h; y += SAMPLE_GAP) {
-          for (let x = 0; x < w; x += SAMPLE_GAP) {
+        for (let y = 0; y < h; y += gap) {
+          for (let x = 0; x < w; x += gap) {
             const i = (y * w + x) * 4;
             if (data[i + 3] > 128) {
-              // Mostly brand purple, with a few teal dots mixed in
-              const teal = ((x + y) / SAMPLE_GAP) % 7 < 1;
+              // Logo mode: mostly brand purple with a few teal dots mixed in
+              const teal = variant === "logo" && ((x + y) / gap) % 7 < 1;
               particles.push({
                 x: Math.random() * w,
                 y: Math.random() * h,
@@ -136,6 +144,7 @@ export default function ParticleImage({
                 speed: 0.5 + Math.random() * 1.2,
                 size: 0.9 + Math.random() * 0.9,
                 color: teal ? colors.accent2 : colors.accent,
+                shade: Math.random(),
               });
             }
           }
@@ -167,6 +176,17 @@ export default function ParticleImage({
 
       const pointer = pointerRef.current;
       const time = performance.now() / 1000;
+      // Theme colors (re-read periodically is unnecessary — one call per frame
+      // is cheap and keeps the dots in sync when the user toggles the theme)
+      const theme = readThemeColors();
+
+      // Portrait mode: a soft highlight spot slowly drifts across the
+      // silhouette — dots near it glow bright teal (like the reference art),
+      // everything else stays a dim grid dash.
+      const wobbleAmp = variant === "portrait" ? 0.8 : WOBBLE;
+      const spotX = w * (0.54 + 0.16 * Math.cos(time * 0.21));
+      const spotY = h * (0.34 + 0.1 * Math.sin(time * 0.17));
+      const spotR = w * 0.3;
 
       for (const p of particlesRef.current) {
         // Spring back toward home position
@@ -186,18 +206,45 @@ export default function ParticleImage({
         }
 
         // Idle wobble so the shape feels alive when untouched
-        const wobbleX = Math.cos(time * p.speed + p.phase) * WOBBLE;
-        const wobbleY = Math.sin(time * p.speed + p.phase) * WOBBLE;
+        const wobbleX = Math.cos(time * p.speed + p.phase) * wobbleAmp;
+        const wobbleY = Math.sin(time * p.speed + p.phase) * wobbleAmp;
 
         p.vx *= FRICTION;
         p.vy *= FRICTION;
         p.x += p.vx + (wobbleX - (p.x - p.hx) * 0.02);
         p.y += p.vy + (wobbleY - (p.y - p.hy) * 0.02);
 
-        ctx.fillStyle = p.color;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
+        if (variant === "portrait") {
+          // Glow factor: how close this dot's home is to the drifting spot
+          const d0 = Math.hypot(p.hx - spotX, p.hy - spotY);
+          let g = d0 < spotR ? 1 - d0 / spotR : 0;
+          g *= g;
+
+          if (g > 0.06) {
+            // Bright glowing dash (soft halo + bright core)
+            ctx.globalAlpha = 0.18 * g;
+            ctx.fillStyle = theme.accent2;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, 3.6, 0, Math.PI * 2);
+            ctx.fill();
+
+            ctx.globalAlpha = 0.45 + 0.55 * g;
+            ctx.fillStyle = g > 0.45 ? theme.accent2 : theme.accent;
+            ctx.fillRect(p.x - 1.3, p.y - 0.9, 2.6, 1.8);
+          } else {
+            // Dim grid dash filling the silhouette
+            ctx.globalAlpha = 0.22 + 0.16 * p.shade;
+            ctx.fillStyle = theme.dim;
+            ctx.fillRect(p.x - 1.2, p.y - 0.8, 2.4, 1.6);
+          }
+          ctx.globalAlpha = 1;
+        } else {
+          // Logo mode: round brand-colored dots
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
       }
     };
 
@@ -245,7 +292,11 @@ export default function ParticleImage({
     <div
       ref={containerRef}
       className={`relative cursor-pointer ${className}`}
-      aria-label="Interactive particle animation of the Mihsan Alam logo"
+      aria-label={
+        variant === "portrait"
+          ? "Interactive dot-matrix portrait animation"
+          : "Interactive particle animation of the Mihsan Alam logo"
+      }
       role="img"
     >
       <canvas ref={canvasRef} className="block" />
