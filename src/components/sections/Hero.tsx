@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import DotPortrait from "@/components/ui/DotPortrait";
+import Image from "next/image";
 
 export default function Hero() {
   return (
@@ -38,13 +38,18 @@ export default function Hero() {
               {/* Glow ring */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-accent/20 via-accent-2/10 to-transparent blur-2xl animate-pulse" />
 
-              {/* Interactive dot portrait — reconstructed from luminance */}
-              <div className="relative rounded-3xl border-2 border-border shadow-xl overflow-hidden bg-[#0A0E1A]">
-                <DotPortrait className="w-64 h-64 sm:w-80 sm:h-80" />
+              {/* Studio portrait */}
+              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border shadow-xl overflow-hidden">
+                <Image
+                  src="/images/hero.webp"
+                  alt="Mihsan Alam — Full Stack Engineer"
+                  fill
+                  sizes="(max-width: 640px) 256px, 320px"
+                  className="object-cover"
+                  style={{ objectPosition: "center 22%" }}
+                  priority
+                />
               </div>
-              <p className="mt-3 text-center text-xs text-text-secondary/70">
-                hover the dots
-              </p>
             </div>
           </motion.div>
 

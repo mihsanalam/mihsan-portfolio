@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-import ParticleImage from "@/components/layout/ParticleImage";
 
 const focusAreas = [
   "Full-Stack Development",
@@ -28,28 +27,14 @@ export default function About() {
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-center">
-          {/* Left — Photo */}
+        <div className="max-w-3xl">
+          {/* Bio */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="lg:col-span-2"
-          >
-            {/* Interactive particle logo — dots break apart on hover */}
-            <div className="relative w-full max-w-[240px] mx-auto lg:mx-0 rounded-2xl border border-border overflow-hidden shadow-lg bg-surface-2">
-              <ParticleImage className="w-full aspect-square" />
-            </div>
-          </motion.div>
-
-          {/* Right — Bio */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="lg:col-span-3 space-y-4"
+            className="space-y-4"
           >
             <p className="text-text-secondary leading-relaxed">
               Full-Stack Engineer focused on architecting scalable, high-performance web and
