@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ExternalLink, ChevronRight } from "lucide-react";
+import { X, ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import { Project } from "@/types";
@@ -113,19 +113,6 @@ export default function ProjectModal({ project, isOpen, onClose }: ProjectModalP
                   </PhotoProvider>
                 </div>
               )}
-
-              {/* Features */}
-              <div className="space-y-3">
-                <h3 className="text-sm font-semibold text-text-primary">Key Features</h3>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {project.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-text-secondary">
-                      <ChevronRight size={14} aria-hidden="true" className="mt-0.5 text-accent flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               {/* Links */}
               <div className="flex items-center gap-3 pt-4 border-t border-border">

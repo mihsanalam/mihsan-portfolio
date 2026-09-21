@@ -7,7 +7,6 @@ export interface Project {
   stack: string[];
   github: string | null;
   liveUrl: string | null;
-  features: string[];
   category: string[];
   featured?: boolean;
   layout?: "mobile" | "desktop";
