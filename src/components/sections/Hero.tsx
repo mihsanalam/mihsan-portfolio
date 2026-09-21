@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import ParticleImage from "@/components/layout/ParticleImage";
+import DotPortrait from "@/components/ui/DotPortrait";
 
 export default function Hero() {
   return (
@@ -38,9 +38,9 @@ export default function Hero() {
               {/* Glow ring */}
               <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-accent/20 via-accent-2/10 to-transparent blur-2xl animate-pulse" />
 
-              {/* Interactive particle logo — dots break apart on hover */}
-              <div className="relative rounded-3xl border-2 border-border bg-surface-2/40 shadow-xl overflow-hidden">
-                <ParticleImage className="w-64 h-64 sm:w-80 sm:h-80" />
+              {/* Interactive dot portrait — reconstructed from luminance */}
+              <div className="relative rounded-3xl border-2 border-border shadow-xl overflow-hidden bg-[#0A0E1A]">
+                <DotPortrait className="w-64 h-64 sm:w-80 sm:h-80" />
               </div>
               <p className="mt-3 text-center text-xs text-text-secondary/70">
                 hover the dots
