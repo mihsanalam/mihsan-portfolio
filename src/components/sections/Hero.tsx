@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
-import Image from "next/image";
+import PixelWisteria from "@/components/ui/PixelWisteria";
 
 export default function Hero() {
   return (
@@ -31,16 +31,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden bg-transparent">
-              <Image
-                src="/images/hero.webp"
-                alt="Mihsan Alam — Full Stack Engineer"
-                fill
-                sizes="(max-width: 640px) 256px, 320px"
-                className="object-cover"
-                style={{ objectPosition: "center 22%" }}
-                priority
-              />
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden bg-transparent flex items-center justify-center">
+              <PixelWisteria size={320} pixels={24} />
             </div>
           </motion.div>
 
