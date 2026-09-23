@@ -16,7 +16,7 @@ const items: FollowItem[] = [
 
 export default function FollowBlock() {
   return (
-    <div className="mt-4 flex items-center gap-4">
+    <div className="mt-4 flex items-center gap-3">
       {items.map((it) => {
         const Icon = it.icon;
         return (
@@ -25,16 +25,15 @@ export default function FollowBlock() {
             href={it.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg bg-surface-2 border border-border hover:border-accent hover:shadow-[0_6px_20px_var(--accent-glow)] transition-all duration-200"
+            className="group relative flex h-11 w-11 items-center justify-center overflow-hidden border-2 border-border bg-surface-2 text-text-primary shadow-[4px_4px_0_0_rgba(255,86,86,0.25)] transition-all duration-200 ease-out hover:-translate-y-0.5 hover:translate-x-[-1px] hover:border-accent hover:shadow-[6px_6px_0_0_rgba(255,86,86,0.45)]"
             aria-label={`Follow on ${it.label}`}
+            title={it.label}
+            style={{ borderRadius: 0 }}
           >
-            <div className="w-8 h-8 flex items-center justify-center text-text-primary">
-              <Icon size={16} aria-hidden="true" />
-            </div>
-            <div className="text-left">
-              <div className="text-sm font-semibold text-text-primary">{it.label}</div>
-              <div className="text-xs text-text-secondary">{it.count} followers</div>
-            </div>
+            <span className="absolute -left-1 -top-1 h-1.5 w-1.5 bg-accent" aria-hidden="true" />
+            <span className="absolute -bottom-1 -right-1 h-1.5 w-1.5 bg-accent/80" aria-hidden="true" />
+            <Icon size={15} aria-hidden="true" className="relative z-10 transition-transform duration-200 group-hover:scale-110" />
+            <span className="sr-only">{it.label}</span>
           </a>
         );
       })}
