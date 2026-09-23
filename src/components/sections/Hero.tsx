@@ -11,16 +11,13 @@ export default function Hero() {
     >
       {/* Background Effects */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Gradient orbs */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-accent/10 rounded-full blur-[120px] animate-pulse" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-accent-2/10 rounded-full blur-[120px] animate-pulse delay-1000" />
         {/* Grid pattern */}
         <div
-          className="absolute inset-0 opacity-[0.03]"
+          className="absolute inset-0 opacity-[0.025]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(123,111,232,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(123,111,232,0.3) 1px, transparent 1px)",
-            backgroundSize: "60px 60px",
+              "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
+            backgroundSize: "56px 56px",
           }}
         />
       </div>
@@ -29,27 +26,21 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Column — Profile Visual */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="relative">
-              {/* Glow ring */}
-              <div className="absolute -inset-4 rounded-full bg-gradient-to-br from-accent/20 via-accent-2/10 to-transparent blur-2xl animate-pulse" />
-
-              {/* Studio portrait */}
-              <div className="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full border-2 border-border shadow-xl overflow-hidden">
-                <Image
-                  src="/images/hero.webp"
-                  alt="Mihsan Alam — Full Stack Engineer"
-                  fill
-                  sizes="(max-width: 640px) 256px, 320px"
-                  className="object-cover"
-                  style={{ objectPosition: "center 22%" }}
-                  priority
-                />
-              </div>
+            <div className="relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden bg-transparent">
+              <Image
+                src="/images/hero.webp"
+                alt="Mihsan Alam — Full Stack Engineer"
+                fill
+                sizes="(max-width: 640px) 256px, 320px"
+                className="object-cover"
+                style={{ objectPosition: "center 22%" }}
+                priority
+              />
             </div>
           </motion.div>
 
@@ -72,7 +63,7 @@ export default function Hero() {
               </p>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg border-2 border-accent bg-white text-gray-900 font-semibold hover:shadow-[0_0_25px_var(--accent-glow)] hover:-translate-y-0.5 transition-all duration-300"
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg border border-border bg-surface text-text-primary font-semibold hover:bg-surface-2 transition-all duration-300"
               >
                 <Mail size={18} aria-hidden="true" />
                 Say hi!
@@ -81,7 +72,6 @@ export default function Hero() {
           </motion.div>
         </div>
       </div>
-
     </section>
   );
 }

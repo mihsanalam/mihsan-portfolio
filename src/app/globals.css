@@ -3,36 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --background: #F5F5FA;
-  --surface: #FFFFFF;
-  --surface-2: #EDEDF5;
-  --border: #DDDDE8;
-  --text-primary: #0A0A0F;
-  --text-secondary: #50506A;
-  --accent: #5A4FD8;
-  --accent-glow: rgba(90, 79, 216, 0.15);
-  --accent-2: #4FC3C3;
+  --background: #090909;
+  --surface: #121212;
+  --surface-2: #1a1a1d;
+  --border: #3d1017;
+  --text-primary: #f5f1f2;
+  --text-secondary: #d3b7bb;
+  --accent: #b11226;
+  --accent-glow: rgba(177, 18, 38, 0.18);
+  --accent-2: #ff5a5f;
 }
 
 .dark {
-  --background: #0A0A0F;
-  --surface: #111118;
-  --surface-2: #1A1A24;
-  --border: #2A2A3A;
-  --text-primary: #F0F0F5;
-  --text-secondary: #9090A8;
-  --accent: #7B6FE8;
-  --accent-glow: rgba(123, 111, 232, 0.2);
-  --accent-2: #4FC3C3;
+  --background: #090909;
+  --surface: #121212;
+  --surface-2: #1a1a1d;
+  --border: #3d1017;
+  --text-primary: #f5f1f2;
+  --text-secondary: #d3b7bb;
+  --accent: #b11226;
+  --accent-glow: rgba(177, 18, 38, 0.18);
+  --accent-2: #ff5a5f;
+}
+
+.light {
+  --background: #140b0d;
+  --surface: #1d1114;
+  --surface-2: #2a171b;
+  --border: #5a1a22;
+  --text-primary: #fff5f6;
+  --text-secondary: #ebc4c9;
+  --accent: #c3162e;
+  --accent-glow: rgba(195, 22, 46, 0.14);
+  --accent-2: #ff6b73;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    background: var(--background);
   }
 
   body {
     @apply bg-background text-text-primary transition-colors duration-300;
+    background-image: none;
+    background-attachment: fixed;
   }
 
   ::selection {
