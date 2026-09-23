@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import PixelWisteria from "@/components/ui/PixelWisteria";
+import FollowBlock from "@/components/ui/FollowBlock";
 
 export default function Hero() {
   return (
@@ -60,6 +61,7 @@ export default function Hero() {
                 <Mail size={18} aria-hidden="true" />
                 Say hi!
               </a>
+              <FollowBlock />
             </div>
           </motion.div>
         </div>
