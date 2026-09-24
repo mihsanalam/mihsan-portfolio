@@ -87,15 +87,13 @@ export default function Navbar() {
               }}
               className="flex items-center gap-2 group relative"
             >
-              <div className="w-8 h-8 rounded-lg border border-border bg-surface-2 p-0.5 flex items-center justify-center overflow-hidden">
-                <Image
-                  src="/images/Logo.png"
-                  alt="Mihsan Alam Portfolio Logo"
-                  width={32}
-                  height={32}
-                  className="w-full h-full object-contain"
-                />
-              </div>
+              <Image
+                src="/images/Logo.png"
+                alt="Mihsan Alam Portfolio Logo"
+                width={32}
+                height={32}
+                className="h-8 w-auto object-contain"
+              />
               <span className="text-lg font-bold text-text-primary tracking-wide">
                 Mihsan
               </span>
