@@ -92,9 +92,18 @@ export default function Navbar() {
                 /images/Logo.png is a 1055x1491 export whose mark ("M" + the red
                 slash) sits inside a big black plate — artwork bbox: x 324-729,
                 y 344-1081. The percentages below scale/offset the image so this
-                24x44 wrapper frames exactly that artwork (44 / 738 = 0.0596).
+                24x44 wrapper frames exactly that artwork (44 / 738 = 0.0596),
+                and the wrapper's filter keys the plate out (alpha = R+G+B, so
+                pure black ends up fully transparent).
+                A blend mode can NOT be used here: the fixed, z-40 <nav> is its
+                own stacking context/composited layer, so mix-blend-mode has no
+                page backdrop to lighten against and the plate would render as a
+                black rectangle (verified in Chrome).
               */}
-              <div className="relative w-6 h-11 overflow-hidden">
+              <div
+                className="relative w-6 h-11 overflow-hidden"
+                style={{ filter: "url(#nav-logo-alpha-key)" }}
+              >
                 <Image
                   src="/images/Logo.png"
                   alt="Mihsan Alam Portfolio Logo"
@@ -160,6 +169,18 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+
+        {/*
+          Alpha-key filter referenced by the logo wrapper above: alpha = R+G+B,
+          so the PNG's pure black plate becomes fully transparent while the mark
+          itself keeps its colours (brand red included). Zero-sized and out of
+          flow, so it only defines the filter.
+        */}
+        <svg aria-hidden="true" focusable="false" width="0" height="0" className="absolute w-0 h-0">
+          <filter id="nav-logo-alpha-key" colorInterpolationFilters="sRGB">
+            <feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 1 1 1 0 0" />
+          </filter>
+        </svg>
       </motion.nav>
 
       {/* Mobile menu overlay */}
