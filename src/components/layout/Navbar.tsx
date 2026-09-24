@@ -87,13 +87,23 @@ export default function Navbar() {
               }}
               className="flex items-center gap-2 group relative"
             >
-              <Image
-                src="/images/Logo.png"
-                alt="Mihsan Alam Portfolio Logo"
-                width={32}
-                height={32}
-                className="h-8 w-auto object-contain"
-              />
+              {/*
+                Logo = the image only: no box, no outline, no background.
+                /images/Logo.png is a 1055x1491 export whose mark ("M" + the red
+                slash) sits inside a big black plate — artwork bbox: x 324-729,
+                y 344-1081. The percentages below scale/offset the image so this
+                24x44 wrapper frames exactly that artwork (44 / 738 = 0.0596).
+              */}
+              <div className="relative w-6 h-11 overflow-hidden">
+                <Image
+                  src="/images/Logo.png"
+                  alt="Mihsan Alam Portfolio Logo"
+                  width={1055}
+                  height={1491}
+                  sizes="63px"
+                  className="absolute left-[-80.5%] top-[-46.61%] w-auto h-[202.03%] max-w-none"
+                />
+              </div>
               <span className="text-lg font-bold text-text-primary tracking-wide">
                 Mihsan
               </span>
