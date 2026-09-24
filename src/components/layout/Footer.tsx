@@ -33,18 +33,9 @@ export default function Footer() {
 		<footer className="relative border-t border-border bg-surface/50">
 			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-					{/* Brand */}
+					{/* Brand — wordmark only (full_text.png is the footer's only image) */}
 					<div className="space-y-3">
 						<div className="flex items-center gap-3">
-							<div className="w-12 h-12 rounded-lg border border-accent/20 bg-surface-2 p-1.5 flex items-center justify-center overflow-hidden shadow-[0_0_18px_rgba(255,86,86,0.12)]">
-								<Image
-									src="/images/Logo.png"
-									alt="Mihsan Alam Portfolio Footer Logo"
-									width={48}
-									height={48}
-									className="w-full h-full object-contain"
-								/>
-							</div>
 							<div className="rounded-md border border-border bg-surface-2 px-3 py-2 shadow-[0_0_18px_rgba(255,86,86,0.08)]">
 								<Image
 									src="/images/full_text.png"
