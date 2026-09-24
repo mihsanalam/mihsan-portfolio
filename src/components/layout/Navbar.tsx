@@ -106,7 +106,7 @@ export default function Navbar() {
               >
                 <Image
                   src="/images/Logo.png"
-                  alt="Mihsan Alam Portfolio Logo"
+                  alt="Mihsan Alam"
                   width={1055}
                   height={1491}
                   sizes="63px"
