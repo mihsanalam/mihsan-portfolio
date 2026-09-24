@@ -35,16 +35,23 @@ export default function Footer() {
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 					{/* Brand — wordmark only (full_text.png is the footer's only image) */}
 					<div className="space-y-3">
-						<div className="flex items-center gap-3">
-							<div className="rounded-md border border-border bg-surface-2 px-3 py-2 shadow-[0_0_18px_rgba(255,86,86,0.08)]">
-								<Image
-									src="/images/full_text.png"
-									alt="Mihsan Alam"
-									width={180}
-									height={48}
-									className="h-8 w-auto object-contain"
-								/>
-							</div>
+						{/*
+						  full_text.png is a 1053x1493 export padded with a huge black
+						  plate (artwork bbox: x 125-950 / y 408-1046 — "MIHSAN" plus the
+						  red slash). object-cover crops that dead space away (the 90/64
+						  box keeps the whole artwork in frame, centred like the source is)
+						  and mix-blend-lighten drops the PNG's baked-in black plate, so
+						  the wordmark sits directly on the footer background with no
+						  panel, border or background behind it.
+						*/}
+						<div className="relative w-[90px] h-16 overflow-hidden">
+							<Image
+								src="/images/full_text.png"
+								alt="Mihsan Alam"
+								fill
+								sizes="90px"
+								className="object-cover object-center mix-blend-lighten"
+							/>
 						</div>
 						<p className="text-sm text-text-secondary leading-relaxed">
 							Full Stack Engineer building real-world web and mobile applications.
