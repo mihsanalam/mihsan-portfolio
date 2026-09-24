@@ -30,7 +30,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center lg:justify-start order-2 lg:order-1"
+            className="flex justify-center lg:justify-start mt-10 sm:mt-12 lg:mt-0 order-2 lg:order-1"
           >
             {/*
               Fluid square that always fits the column: full width up to a cap per
