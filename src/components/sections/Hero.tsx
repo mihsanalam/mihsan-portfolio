@@ -25,12 +25,12 @@ export default function Hero() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          {/* Left Column — Profile Visual */}
+          {/* Profile Visual — first on phones (above the text), left column on desktop */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center lg:justify-start mt-10 sm:mt-12 lg:mt-0 order-2 lg:order-1"
+            className="flex justify-center lg:justify-start mt-10 sm:mt-12 lg:mt-0"
           >
             {/*
               Fluid square that always fits the column: full width up to a cap per
@@ -43,12 +43,12 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Right Column — Text */}
+          {/* Text — below the image on phones, right column on desktop */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="space-y-6 order-1 lg:order-2"
+            className="space-y-6"
           >
             <div className="space-y-5">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
