@@ -32,7 +32,13 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-transparent flex items-center justify-center">
+            {/*
+              Fluid square that always fits the column: full width up to a cap per
+              breakpoint — 20rem (320px) on phones, 24rem (384px) from sm, 28rem
+              (448px) from lg. Because the width is fluid (w-full) it can never
+              overflow a narrow screen, and desktop gets a noticeably bigger visual.
+            */}
+            <div className="relative w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] aspect-square overflow-hidden bg-transparent flex items-center justify-center">
               <PixelParticleImage src="/images/image.png" alt="Mihsan Alam portrait" className="h-full w-full" />
             </div>
           </motion.div>
