@@ -32,7 +32,7 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.2 }}
             className="flex justify-center lg:justify-start order-2 lg:order-1"
           >
-            <div className="relative w-64 h-64 sm:w-80 sm:h-80 overflow-hidden bg-transparent flex items-center justify-center">
+            <div className="relative w-full h-64 sm:h-80 overflow-hidden bg-transparent flex items-center justify-center">
               <PixelParticleImage src="/images/image.png" alt="Mihsan Alam portrait" className="h-full w-full" />
             </div>
           </motion.div>
