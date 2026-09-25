@@ -41,13 +41,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keeps anchor targets clear of the fixed navbar. */
+    scroll-padding-top: 5rem;
     background: var(--background);
   }
 
   body {
     @apply bg-background text-text-primary transition-colors duration-300;
-    background-image: none;
-    background-attachment: fixed;
   }
 
   ::selection {
@@ -79,4 +79,66 @@
     text-wrap: balance;
   }
 }
+
+/* ─── Hero entrance ─────────────────────────────────────────────────────────
+   Pure CSS so the above-the-fold hero animates in without waiting for a JS
+   bundle (framer-motion used to own this). `both` keeps the start state until
+   the delayed animation begins, so there is no flash of the final position.
+*/
+@keyframes hero-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-slide-right {
+  from {
+    opacity: 0;
+    transform: translate3d(2.5rem, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-hero-pop {
+  animation: hero-pop 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both;
+}
+
+.animate-hero-right {
+  animation: hero-slide-right 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+/* ─── Reduced motion ────────────────────────────────────────────────────────
+   Decorative animation is the first thing to go for users who ask for less of
+   it — and it also means those visitors skip all of the animation work.
+*/
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-hero-pop,
+  .animate-hero-right {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 

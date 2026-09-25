@@ -26,35 +26,76 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+    // Section offsets are measured once (and on resize) instead of being read
+    // from the DOM on every scroll event, and the handler is rAF-throttled so a
+    // fast scroll can no longer trigger dozens of re-renders per second.
+    const sections = navLinks
+      .map((link) => document.querySelector<HTMLElement>(link.href))
+      .filter((section): section is HTMLElement => section !== null);
 
-      // Scroll Spy active section detection
-      const sections = navLinks.map((link) => document.querySelector(link.href));
-      const scrollPosition = window.scrollY + 160; // Offset for Navbar height and triggers
+    let ranges: { href: string; top: number; bottom: number }[] = [];
+    let scrollFrame: number | null = null;
+    let lastScrolled = false;
+    let lastActiveSection = "";
 
-      let currentSection = "";
-      for (const section of sections) {
-        if (section) {
-          const top = (section as HTMLElement).offsetTop;
-          const height = (section as HTMLElement).offsetHeight;
-          if (scrollPosition >= top && scrollPosition < top + height) {
-            currentSection = `#${section.id}`;
+    const measure = () => {
+      ranges = sections.map((section, index) => {
+        const top = section.offsetTop;
+        return { href: navLinks[index].href, top, bottom: top + section.offsetHeight };
+      });
+    };
+
+    const update = () => {
+      scrollFrame = null;
+
+      const scrollY = window.scrollY;
+
+      const isScrolled = scrollY > 20;
+      if (isScrolled !== lastScrolled) {
+        lastScrolled = isScrolled;
+        setScrolled(isScrolled);
+      }
+
+      // Scroll spy — at the very top of the page no section is active.
+      let nextSection = "";
+      if (scrollY >= 100) {
+        const position = scrollY + 160; // Offset for navbar height and triggers
+        for (const range of ranges) {
+          if (position >= range.top && position < range.bottom) {
+            nextSection = range.href;
           }
         }
       }
-      // If we are at the very top of the page, clear active section
-      if (window.scrollY < 100) {
-        setActiveSection("");
-      } else {
-        setActiveSection(currentSection);
+
+      if (nextSection !== lastActiveSection) {
+        lastActiveSection = nextSection;
+        setActiveSection(nextSection);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    // Initial call to set active section on page load
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handleScroll = () => {
+      if (scrollFrame === null) scrollFrame = window.requestAnimationFrame(update);
+    };
+
+    const handleResize = () => {
+      measure();
+      handleScroll();
+    };
+
+    measure();
+    update();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleResize);
+    // Fonts, late images and lazy sections can still shift the layout.
+    window.addEventListener("load", handleResize);
+
+    return () => {
+      if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load", handleResize);
+    };
   }, []);
 
   const handleClick = (href: string) => {

@@ -35,7 +35,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
                 alt=""
                 aria-hidden="true"
                 fill
-                sizes="(max-width: 768px) 100vw, 33vw"
+                sizes="96px"
                 className="absolute inset-0 w-full h-full object-cover blur-md scale-110 opacity-30 pointer-events-none"
               />
               {/* Centered mobile device screenshot */}
@@ -44,7 +44,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
                   src={project.images[0]}
                   alt={project.imageAlt || `${project.title} preview`}
                   fill
-                  sizes="(max-width: 768px) 150px, 120px"
+                  sizes="92px"
                   className="object-cover"
                 />
               </div>
@@ -55,7 +55,7 @@ export default function ProjectCard({ project, index, onOpenModal }: ProjectCard
               src={project.images[0]}
               alt={project.imageAlt || `${project.title} preview`}
               fill
-              sizes="(max-width: 768px) 100vw, 33vw"
+              sizes="(max-width: 767px) 100vw, 50vw"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           )

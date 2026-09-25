@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import "./globals.css";
@@ -74,6 +74,14 @@ export const metadata: Metadata = {
       "Mihsan Alam is a Full Stack Engineer building production web and mobile applications with React, Next.js, React Native, and Node.js. Studying at BAF Shaheen College Kurmitola, based in Dhaka, Bangladesh.",
     images: ["/images/mihsan_logo.png"],
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  colorScheme: "dark",
+  // Colours the mobile browser chrome to match the page background.
+  themeColor: "#090909",
 };
 
 // ─── Structured data ──────────────────────────────────────────────────────────
@@ -167,9 +175,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/images/mihsan_logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/mihsan_logo.png" />
+        {/*
+          Icons are declared once in `metadata.icons` above — the manual <link>
+          tags that duplicated them here are gone.
+        */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

@@ -1,11 +1,18 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import ProjectCard from "@/components/ui/ProjectCard";
-import ProjectModal from "@/components/ui/ProjectModal";
 import { projects } from "@/data/projects";
 import { Project } from "@/types";
+
+/*
+ * The modal (plus react-photo-view and its stylesheet) is code-split into its
+ * own chunk and only downloaded the first time a card is opened — it used to
+ * sit in the initial bundle even though most visitors never open it.
+ */
+const ProjectModal = dynamic(() => import("@/components/ui/ProjectModal"), { ssr: false });
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -50,12 +57,14 @@ export default function Projects() {
         </div>
       </div>
 
-      {/* Project Modal */}
-      <ProjectModal
-        project={selectedProject}
-        isOpen={isModalOpen}
-        onClose={closeModal}
-      />
+      {/*
+        Only mounted once a project has been selected. It keeps the exit
+        animation working (the project is cleared 300ms after close) while
+        making sure the lazy chunk is never fetched up front.
+      */}
+      {selectedProject && (
+        <ProjectModal project={selectedProject} isOpen={isModalOpen} onClose={closeModal} />
+      )}
     </section>
   );
 }

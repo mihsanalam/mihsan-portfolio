@@ -1,9 +1,13 @@
-"use client";
-import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 import PixelParticleImage from "@/components/ui/PixelParticleImage";
 import FollowBlock from "@/components/ui/FollowBlock";
 
+/*
+ * Server Component on purpose. The only interactive piece is the particle
+ * canvas island inside PixelParticleImage, and the entrance animation is pure
+ * CSS (`.animate-hero-pop` / `.animate-hero-right` in globals.css), so the hero
+ * paints from HTML without waiting on any JS bundle.
+ */
 export default function Hero() {
   return (
     <section
@@ -26,12 +30,7 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Profile Visual — first on phones (above the text), left column on desktop */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="flex justify-center lg:justify-start mt-10 sm:mt-12 lg:mt-0"
-          >
+          <div className="animate-hero-pop flex justify-center lg:justify-start mt-10 sm:mt-12 lg:mt-0">
             {/*
               Fluid square that always fits the column: full width up to a cap per
               breakpoint — 20rem (320px) on phones, 24rem (384px) from sm, 28rem
@@ -39,17 +38,16 @@ export default function Hero() {
               overflow a narrow screen, and desktop gets a noticeably bigger visual.
             */}
             <div className="relative w-full max-w-[20rem] sm:max-w-[24rem] lg:max-w-[28rem] aspect-square overflow-hidden bg-transparent flex items-center justify-center">
-              <PixelParticleImage src="/images/image.png" alt="Mihsan Alam portrait" className="h-full w-full" />
+              <PixelParticleImage
+                src="/images/hero-scene.webp"
+                alt="Mihsan Alam portrait"
+                className="h-full w-full"
+              />
             </div>
-          </motion.div>
+          </div>
 
           {/* Text — below the image on phones, right column on desktop */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7, delay: 0.4 }}
-            className="space-y-6"
-          >
+          <div className="animate-hero-right space-y-6">
             <div className="space-y-5">
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-text-primary leading-tight">
                 Hi, <span className="text-accent">Mihsan</span> here.
@@ -69,7 +67,7 @@ export default function Hero() {
               </a>
               <FollowBlock />
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

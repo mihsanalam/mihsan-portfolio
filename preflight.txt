@@ -1,0 +1,34 @@
+﻿=== branch ===
+* main 3e58753 [origin/main] Hero: show the portrait above the text on phones
+=== remote ===
+origin	https://github.com/mihsanalam/mihsan-portfolio.git (fetch)
+origin	https://github.com/mihsanalam/mihsan-portfolio.git (push)
+=== last commits ===
+3e58753 Hero: show the portrait above the text on phones
+5ff4bee Hero: add top spacing to the portrait when the hero stacks
+77fc190 Hero: size the portrait as an aspect-square capped at 320/384/448
+52cafd8 Hero: make the portrait fluid instead of a fixed 256/320px box
+9bd44b6 Navbar: shorten the logo alt text to the brand name
+=== status summary ===
+92
+=== untracked + modified (non-deleted) ===
+ M next.config.mjs
+ M package-lock.json
+ M package.json
+ M src/app/globals.css
+ M src/app/layout.tsx
+ M src/components/layout/Navbar.tsx
+ M src/components/sections/About.tsx
+ M src/components/sections/Hero.tsx
+ M src/components/sections/Projects.tsx
+ M src/components/sections/Skills.tsx
+ M src/components/ui/PixelParticleImage.tsx
+ M src/components/ui/ProjectCard.tsx
+ M src/components/ui/SkillBadge.tsx
+?? public/images/hero-scene.webp
+?? public/images/mihsan.webp
+?? src/components/ui/Reveal.tsx
+=== leftover report files ===
+
+=== temp dirs ===
+

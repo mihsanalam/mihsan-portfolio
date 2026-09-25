@@ -1,5 +1,4 @@
-"use client";
-import { motion } from "framer-motion";
+import Reveal from "@/components/ui/Reveal";
 
 const focusAreas = [
   "Full-Stack Development",
@@ -10,32 +9,25 @@ const focusAreas = [
   "AI-Assisted Development",
 ];
 
+/*
+ * Server Component — static content, so `<Reveal>` is the only thing that
+ * needs to reach the browser.
+ */
 export default function About() {
   return (
     <section id="about" className="py-16 sm:py-20 relative">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-10"
-        >
+        <Reveal className="mb-10">
           <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mt-2">
             <span className="text-accent mr-3">/</span>about
           </h2>
           <div className="w-16 h-1 bg-accent/30 rounded-full mt-4" />
-        </motion.div>
+        </Reveal>
 
         <div className="max-w-3xl">
           {/* Bio */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="space-y-4"
-          >
+          <Reveal duration={0.5} className="space-y-4">
             <p className="text-text-secondary leading-relaxed">
               Full-Stack Engineer focused on architecting scalable, high-performance web and
               mobile platforms with clean, maintainable system design — working across{" "}
@@ -65,7 +57,7 @@ export default function About() {
                 ))}
               </div>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>

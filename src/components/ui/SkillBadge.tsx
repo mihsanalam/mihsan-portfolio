@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import {
   SiReact,
   SiNextdotjs,
@@ -101,14 +98,13 @@ const iconMap: Record<string, React.ComponentType<any>> = {
 
 interface SkillBadgeProps {
   skill: Skill;
-  index: number;
   /** Core Stack mode — renders icon + name centered inside the parent card */
   coreMode?: boolean;
   /** Compact mode — smaller, tighter badge for Full Toolkit grid */
   compact?: boolean;
 }
 
-export default function SkillBadge({ skill, index, coreMode, compact }: SkillBadgeProps) {
+export default function SkillBadge({ skill, coreMode, compact }: SkillBadgeProps) {
   const Icon = iconMap[skill.icon];
 
   // ── Core Stack variant: just icon + name, centered (parent handles the card) ──
@@ -128,34 +124,20 @@ export default function SkillBadge({ skill, index, coreMode, compact }: SkillBad
   // ── Compact variant: smaller badge for Full Toolkit ──
   if (compact) {
     return (
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.3, delay: index * 0.03 }}
-        whileHover={{ scale: 1.04 }}
-        className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-surface border border-border hover:border-accent/30 hover:bg-surface-2 transition-all duration-200 cursor-default"
-      >
+      <div className="group flex items-center gap-2 px-3 py-2 rounded-lg bg-surface border border-border hover:border-accent/30 hover:bg-surface-2 hover:scale-[1.03] transition-all duration-200 cursor-default">
         {Icon && (
           <Icon className="w-3.5 h-3.5 text-text-secondary group-hover:text-accent transition-colors duration-200 flex-shrink-0" />
         )}
         <span className="text-xs font-medium text-text-secondary group-hover:text-text-primary transition-colors truncate">
           {skill.name}
         </span>
-      </motion.div>
+      </div>
     );
   }
 
   // ── Default variant ──
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.05 }}
-      whileHover={{ scale: 1.05, y: -4 }}
-      className="group relative flex items-center gap-3 px-4 py-3 rounded-xl bg-surface border border-border hover:border-accent/40 transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(123,111,232,0.1)]"
-    >
+    <div className="group relative flex items-center gap-3 px-4 py-3 rounded-xl bg-surface border border-border hover:border-accent/40 hover:-translate-y-1 hover:scale-[1.03] transition-all duration-300 cursor-default hover:shadow-[0_0_20px_rgba(123,111,232,0.1)]">
       {/* Glow backdrop on hover */}
       <div className="absolute inset-0 rounded-xl bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -165,6 +147,6 @@ export default function SkillBadge({ skill, index, coreMode, compact }: SkillBad
         )}
         <span className="text-sm font-medium text-text-primary">{skill.name}</span>
       </div>
-    </motion.div>
+    </div>
   );
 }
