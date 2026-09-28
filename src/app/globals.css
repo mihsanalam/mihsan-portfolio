@@ -44,10 +44,18 @@
     /* Keeps anchor targets clear of the fixed navbar. */
     scroll-padding-top: 5rem;
     background: var(--background);
+    /*
+      Entrance animations that start offset to the right (e.g. the contact
+      form's `x: 30` and the experience panel's `x: 12`) widen the document
+      before they settle, which let the whole page slide sideways on mobile.
+      Clip the horizontal axis so that never happens.
+    */
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-text-primary transition-colors duration-300;
+    overflow-x: hidden;
   }
 
   ::selection {

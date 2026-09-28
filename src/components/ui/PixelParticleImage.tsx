@@ -48,9 +48,10 @@ const IDLE_FRAME_MS = 1000 / 30;
  * pointer and settle back.
  *
  * Performance notes:
- * - A real, priority-loaded `<Image>` paints first so the hero has an immediate
- *   LCP candidate instead of waiting for JS + canvas decode. The canvas fades
- *   in on top once it has drawn its first frame.
+ * - A real, priority-loaded `<Image>` is kept in the DOM but hidden: it is the
+ *   warm source the canvas samples from, so the pixels appear as soon as the
+ *   first frame is ready — the clear photo is never shown. If that source
+ *   fails to load, we reveal it so the visual is never left blank.
  * - The whole grid is read with a single `getImageData` call instead of one
  *   call per sample point (that alone was ~8.000 GPU readbacks per resize).
  * - `prefers-reduced-motion` gets one static frame and no animation loop.
@@ -71,6 +72,8 @@ export default function PixelParticleImage({
   const startedRef = useRef(false);
   const visibleRef = useRef(true);
   const [painted, setPainted] = useState(false);
+  /** Set only if the artwork fails to load — then we reveal the `<Image>`. */
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -322,6 +325,7 @@ export default function PixelParticleImage({
 
     img.onerror = () => {
       console.error("Failed to load pixel particle image source:", src);
+      setFailed(true);
     };
 
     resizeCanvas();
@@ -363,9 +367,11 @@ export default function PixelParticleImage({
   return (
     <div ref={wrapRef} className={`relative h-full w-full overflow-hidden ${className}`}>
       {/*
-        Static, optimised and priority-loaded: paints immediately (LCP) and is
-        also the single source the canvas samples from — same URL, so the
-        second request is served from the browser cache.
+        Kept in the DOM and priority-loaded only as the warm source the canvas
+        samples from — same URL, so the canvas's second request is served from
+        the browser cache. It is deliberately NOT shown: the hero reveals the
+        pixelated canvas directly, never the clear photo. If the source ever
+        fails to load we fall back to showing it so the visual is never blank.
       */}
       <Image
         src={src}
@@ -374,14 +380,14 @@ export default function PixelParticleImage({
         priority
         unoptimized
         sizes="(max-width: 640px) 80vw, 448px"
-        className={`object-cover transition-opacity duration-700 ${
-          painted ? "opacity-0" : "opacity-100"
+        className={`object-cover transition-opacity duration-500 ${
+          failed ? "opacity-100" : "opacity-0"
         }`}
       />
       <canvas
         ref={canvasRef}
         aria-hidden="true"
-        className={`absolute inset-0 block h-full w-full transition-opacity duration-700 ${
+        className={`absolute inset-0 block h-full w-full transition-opacity duration-500 ${
           painted ? "opacity-100" : "opacity-0"
         }`}
       />
